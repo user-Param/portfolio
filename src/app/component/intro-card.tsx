@@ -1,304 +1,103 @@
-"use client";
 
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, PanInfo, useMotionValue, useTransform } from 'motion/react';
-import React, { JSX } from 'react';
 
-// replace icons with your own if needed
-import { FiCircle, FiCode, FiFileText, FiLayers, FiLayout } from 'react-icons/fi';
-export interface CarouselItem {
-  title: string;
-  description: string;
-  id: number;
-  icon: React.ReactNode;
-}
-
-export interface CarouselProps {
-  items?: CarouselItem[];
-  baseWidth?: number;
-  autoplay?: boolean;
-  autoplayDelay?: number;
-  pauseOnHover?: boolean;
-  loop?: boolean;
-  round?: boolean;
-}
-
-const DEFAULT_ITEMS: CarouselItem[] = [
-  {
-    title: 'Text Animations',
-    description: 'Cool text animations for your projects.',
-    id: 1,
-    icon: <FiFileText className="h-[16px] w-[16px] text-white" />
-  },
-  {
-    title: 'Animations',
-    description: 'Smooth animations for your projects.',
-    id: 2,
-    icon: <FiCircle className="h-[16px] w-[16px] text-white" />
-  },
-  {
-    title: 'Components',
-    description: 'Reusable components for your projects.',
-    id: 3,
-    icon: <FiLayers className="h-[16px] w-[16px] text-white" />
-  },
-  {
-    title: 'Backgrounds',
-    description: 'Beautiful backgrounds and patterns for your projects.',
-    id: 4,
-    icon: <FiLayout className="h-[16px] w-[16px] text-white" />
-  },
-  {
-    title: 'Common UI',
-    description: 'Common UI components are coming soon!',
-    id: 5,
-    icon: <FiCode className="h-[16px] w-[16px] text-white" />
-  }
-];
-
-const DRAG_BUFFER = 0;
-const VELOCITY_THRESHOLD = 500;
-const GAP = 16;
-const SPRING_OPTIONS = { type: 'spring' as const, stiffness: 300, damping: 30 };
-
-interface CarouselItemProps {
-  item: CarouselItem;
-  index: number;
-  itemWidth: number;
-  round: boolean;
-  trackItemOffset: number;
-  x: any;
-  transition: any;
-}
-
-function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, transition }: CarouselItemProps) {
-  const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
-  const outputRange = [90, 0, -90];
-  const rotateY = useTransform(x, range, outputRange, { clamp: false });
-
+export default function IntroCard() {
   return (
-    <motion.div
-      key={`${item?.id ?? index}-${index}`}
-      className={`relative h-[8000px] border shrink-0 flex flex-col ${
-        round
-          ? 'items-center justify-center text-center bg-[#120F17] border-0'
-          : 'items-start justify-between bg-[#222] border border-[#222] rounded-[12px]'
-      } overflow-hidden cursor-grab active:cursor-grabbing`}
-      style={{
-        width: itemWidth,
-        height: round ? itemWidth : '100%',
-        rotateY: rotateY,
-        ...(round && { borderRadius: '50%' })
-      }}
-      transition={transition}
-    >
-      <div className={`${round ? 'p-0 m-0' : 'mb-4 p-5'}`}>
-        <span className="flex h-[48px] w-[28px] items-center justify-center rounded-full bg-[#120F17]">
-          {item.icon}
-        </span>
-      </div>
-      <div className="p-5">
-        <div className="mb-1 font-black text-lg text-white">{item.title}</div>
-        <p className="text-sm text-white">{item.description}</p>
-      </div>
-    </motion.div>
-  );
-}
+    <div className="flex items-center justify-center p-6">
+      <div className="flex w-full max-w-[80%] bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-200">
 
-export default function Carousel({
-  items = DEFAULT_ITEMS,
-  baseWidth = 300,
-  autoplay = false,
-  autoplayDelay = 3000,
-  pauseOnHover = false,
-  loop = false,
-  round = false
-}: CarouselProps): JSX.Element {
-  const containerPadding = 16;
-  const itemWidth = baseWidth - containerPadding * 2;
-  const trackItemOffset = itemWidth + GAP;
-  const itemsForRender = useMemo(() => {
-    if (!loop) return items;
-    if (items.length === 0) return [];
-    return [items[items.length - 1], ...items, items[0]];
-  }, [items, loop]);
+        {/* Left: Avatar */}
+        <div className="flex items-center justify-center w-[45%] bg-white p-10">
+          <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-md">
+            
+          </div>
+        </div>
 
-  const [position, setPosition] = useState<number>(loop ? 1 : 0);
-  const x = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [isJumping, setIsJumping] = useState<boolean>(false);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+        {/* Right: Info */}
+        <div className="flex flex-col flex-1 border-l border-gray-200">
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (pauseOnHover && containerRef.current) {
-      const container = containerRef.current;
-      const handleMouseEnter = () => setIsHovered(true);
-      const handleMouseLeave = () => setIsHovered(false);
-      container.addEventListener('mouseenter', handleMouseEnter);
-      container.addEventListener('mouseleave', handleMouseLeave);
-      return () => {
-        container.removeEventListener('mouseenter', handleMouseEnter);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }
-  }, [pauseOnHover]);
+          {/* PORTFOLIO label */}
+          <div className="px-8 py-5 border-b border-gray-200">
+            <span className="text-xs tracking-[0.25em] text-gray-400 font-medium uppercase">
+              Portfolio
+            </span>
+          </div>
 
-  useEffect(() => {
-    if (!autoplay || itemsForRender.length <= 1) return undefined;
-    if (pauseOnHover && isHovered) return undefined;
+          {/* Name */}
+          <div className="px-8 py-6 border-b border-gray-200 flex items-center gap-3">
+            <h1 className="text-5xl font-black text-black tracking-tight">
+              Paramjeet Singh
+            </h1>
+            {/* Verified Badge */}
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-black text-white flex-shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="white" strokeWidth={2.5}>
+                <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            {/* Speaker Icon */}
+            <button className="text-gray-300 hover:text-gray-500 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6">
+                <path d="M11 5L6 9H3v6h3l5 4V5z" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M15.5 8.5a5 5 0 0 1 0 7" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
 
-    const timer = setInterval(() => {
-      setPosition(prev => Math.min(prev + 1, itemsForRender.length - 1));
-    }, autoplayDelay);
+          {/* Role + Description */}
+          <div className="px-8 py-6 border-b border-gray-200 flex-1">
+            <p className="text-base font-bold text-black mb-2">Full-stack developer</p>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Bridging the gap between robust engineering and pixel-perfect
+              design. Building clean, accessible web interfaces with React &amp;
+              Next.js.
+            </p>
+          </div>
 
-    return () => clearInterval(timer);
-  }, [autoplay, autoplayDelay, isHovered, pauseOnHover, itemsForRender.length]);
+          {/* Actions */}
+          <div className="px-8 py-6 flex items-center gap-3">
+            {/* Contact Me Button */}
+            <button className="flex items-center gap-2 bg-black text-white text-sm font-semibold px-5 py-3 rounded-full hover:bg-gray-800 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} className="w-4 h-4">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M2 7l10 7 10-7" strokeLinecap="round" />
+              </svg>
+              Contact Me
+            </button>
 
-  useEffect(() => {
-    const startingPosition = loop ? 1 : 0;
-    setPosition(startingPosition);
-    x.set(-startingPosition * trackItemOffset);
-  }, [items.length, loop, trackItemOffset, x]);
+            {/* GitHub */}
+            <a
+              href="#"
+              className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-200 text-gray-500 hover:border-gray-400 hover:text-black transition-all"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-5 h-5">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
 
-  useEffect(() => {
-    if (!loop && position > itemsForRender.length - 1) {
-      setPosition(Math.max(0, itemsForRender.length - 1));
-    }
-  }, [itemsForRender.length, loop, position]);
+            {/* LinkedIn */}
+            <a
+              href="#"
+              className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-200 text-gray-500 hover:border-gray-400 hover:text-black transition-all"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-5 h-5">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" strokeLinecap="round" strokeLinejoin="round" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
 
-  const effectiveTransition = isJumping ? { duration: 0 } : SPRING_OPTIONS;
+            {/* Instagram */}
+            <a
+              href="#"
+              className="flex items-center justify-center w-11 h-11 rounded-full border border-gray-200 text-gray-500 hover:border-gray-400 hover:text-black transition-all"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-5 h-5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
 
-  const handleAnimationStart = () => {
-    setIsAnimating(true);
-  };
-
-  const handleAnimationComplete = () => {
-    if (!loop || itemsForRender.length <= 1) {
-      setIsAnimating(false);
-      return;
-    }
-    const lastCloneIndex = itemsForRender.length - 1;
-
-    if (position === lastCloneIndex) {
-      setIsJumping(true);
-      const target = 1;
-      setPosition(target);
-      x.set(-target * trackItemOffset);
-      requestAnimationFrame(() => {
-        setIsJumping(false);
-        setIsAnimating(false);
-      });
-      return;
-    }
-
-    if (position === 0) {
-      setIsJumping(true);
-      const target = items.length;
-      setPosition(target);
-      x.set(-target * trackItemOffset);
-      requestAnimationFrame(() => {
-        setIsJumping(false);
-        setIsAnimating(false);
-      });
-      return;
-    }
-
-    setIsAnimating(false);
-  };
-
-  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo): void => {
-    const { offset, velocity } = info;
-    const direction =
-      offset.x < -DRAG_BUFFER || velocity.x < -VELOCITY_THRESHOLD
-        ? 1
-        : offset.x > DRAG_BUFFER || velocity.x > VELOCITY_THRESHOLD
-          ? -1
-          : 0;
-
-    if (direction === 0) return;
-
-    setPosition(prev => {
-      const next = prev + direction;
-      const max = itemsForRender.length - 1;
-      return Math.max(0, Math.min(next, max));
-    });
-  };
-
-  const dragProps = loop
-    ? {}
-    : {
-        dragConstraints: {
-          left: -trackItemOffset * Math.max(itemsForRender.length - 1, 0),
-          right: 0
-        }
-      };
-
-  const activeIndex =
-    items.length === 0 ? 0 : loop ? (position - 1 + items.length) % items.length : Math.min(position, items.length - 1);
-
-  return (
-    <div
-      ref={containerRef}
-      className={`relative overflow-hidden p-4 ${
-        round ? 'rounded-full border border-white' : 'rounded-[24px] border border-[#222]'
-      }`}
-      style={{
-        width: `${baseWidth}px`,
-        ...(round && { height: `${baseWidth}px` })
-      }}
-    >
-      <motion.div
-        className="flex"
-        drag={isAnimating ? false : 'x'}
-        {...dragProps}
-        style={{
-          width: itemWidth,
-          gap: `${GAP}px`,
-          perspective: 1000,
-          perspectiveOrigin: `${position * trackItemOffset + itemWidth / 2}px 50%`,
-          x
-        }}
-        onDragEnd={handleDragEnd}
-        animate={{ x: -(position * trackItemOffset) }}
-        transition={effectiveTransition}
-        onAnimationStart={handleAnimationStart}
-        onAnimationComplete={handleAnimationComplete}
-      >
-        {itemsForRender.map((item, index) => (
-          <CarouselItem
-            key={`${item?.id ?? index}-${index}`}
-            item={item}
-            index={index}
-            itemWidth={itemWidth}
-            round={round}
-            trackItemOffset={trackItemOffset}
-            x={x}
-            transition={effectiveTransition}
-          />
-        ))}
-      </motion.div>
-      <div className={`flex w-full justify-center ${round ? 'absolute z-20 bottom-12 left-1/2 -translate-x-1/2' : ''}`}>
-        <div className="mt-4 flex w-[150px] justify-between px-8">
-          {items.map((_, index) => (
-            <motion.div
-              key={index}
-              className={`h-2 w-2 rounded-full cursor-pointer transition-colors duration-150 ${
-                activeIndex === index
-                  ? round
-                    ? 'bg-white'
-                    : 'bg-[#333333]'
-                  : round
-                    ? 'bg-[#555]'
-                    : 'bg-[rgba(51,51,51,0.4)]'
-              }`}
-              animate={{
-                scale: activeIndex === index ? 1.2 : 1
-              }}
-              onClick={() => setPosition(loop ? index + 1 : index)}
-              transition={{ duration: 0.15 }}
-            />
-          ))}
         </div>
       </div>
     </div>

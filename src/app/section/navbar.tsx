@@ -1,6 +1,6 @@
 export const Navbar = () => {
   return (
-    <div className="h-[60px] px-6 flex items-center justify-between border-b">
+    <div className="h-[60px] px-6 flex items-center justify-between border-b border-black/20">
       
       {/* Left: Logo / Name */}
       <div className="text-lg font-semibold">

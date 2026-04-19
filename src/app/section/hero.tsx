@@ -1,18 +1,14 @@
-import Carousel from '../component/intro-card'
+import IntroCard from "../component/intro-card";
 
 export const Hero = () => {
   return (
     <>
       <div className="h-[100%]">
-        <div style={{ height: '100%', position: 'relative', border: '1px solid black' }}>
-   <Carousel
-     baseWidth={330}
-     autoplay={false}
-     autoplayDelay={3000}
-     pauseOnHover={false}
-     loop
-     round={false}
-   />
+        <div style={{ height: '100%', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className='flex p-8 rounded-xl'>
+              <IntroCard/>
+          </div>
+          
  </div>
       </div>
     </>
