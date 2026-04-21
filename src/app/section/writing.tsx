@@ -65,10 +65,10 @@ function ArrowIcon() {
 
 export default function RecentWritingsSection() {
   return (
-    <section className="w-full max-w-[80%] mx-auto px-4 py-16">
+    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16">
 
       {/* Header */}
-      <div className="flex items-start justify-between mb-8">
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
         <div>
           <div className="flex items-center gap-3 mb-2">
             <span className="w-8 h-px bg-black inline-block" />
@@ -76,15 +76,15 @@ export default function RecentWritingsSection() {
               03. / Writing
             </p>
           </div>
-          <h2 className="text-3xl font-black text-black">Recent Writings</h2>
-          <p className="text-sm text-gray-400 mt-1.5">
+          <h2 className="text-2xl md:text-3xl font-black text-black">Recent Writings</h2>
+          <p className="text-sm md:text-base text-gray-400 mt-1.5">
             Thoughts on software engineering, design patterns, and emerging technologies.
           </p>
         </div>
         <a
         
           href="#"
-          className="flex items-center gap-2 text-sm text-gray-500 border border-gray-200 rounded-full px-4 py-2 hover:border-gray-400 hover:text-black transition-all"
+          className="inline-flex items-center self-start md:self-auto gap-2 text-sm text-gray-500 border border-gray-200 rounded-full px-4 py-2 hover:border-gray-400 hover:text-black transition-all"
         >
           View all posts
           <ArrowIcon />
@@ -92,7 +92,7 @@ export default function RecentWritingsSection() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {POSTS.map((post) => (
           <div
             key={post.id}

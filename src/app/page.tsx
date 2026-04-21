@@ -4,28 +4,45 @@ import AboutSection from "./section/about";
 import CodingActivitySection from "./section/activity-section";
 import SelectedProjectsSection from "./section/project";
 import RecentWritingsSection from "./section/writing";
+import CertificationsSection from "./section/awards";
+import OpensourceAndFooter from "./section/footer";
+
 
 export default function Home() {
   return (
     <>
-    <div className="w-[50%] border border-black/20 mx-auto">
-    <Navbar/>
-    <div className="h-[80vh]">
-      <Hero/>
-    </div>
+    <div className="w-full max-w-[1200px] border-x-0 md:border-x border-black/5 mx-auto min-h-screen flex flex-col bg-white">
+      <Navbar/>
+      
+      <main className="flex-grow px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <Hero/>
+        </section>
 
-    <div className="h-[100vh] border border-black/20">
-      <AboutSection/>
-    </div>
-    <div className="h-[90vh] border border-black/20">
-      <CodingActivitySection/>
-    </div>
-    <div className="h-[80vh] border border-black/20">
-      <SelectedProjectsSection/>
-    </div>
-    <div className="h-[50vh] border border-black/20">
-      <RecentWritingsSection/>
-    </div>
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <AboutSection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <CodingActivitySection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <SelectedProjectsSection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <RecentWritingsSection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <CertificationsSection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24">
+          <OpensourceAndFooter/>
+        </section>
+      </main>
     </div>
     </>
   );

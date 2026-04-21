@@ -102,26 +102,26 @@ export default function CodingActivitySection() {
   }));
 
   return (
-    <section className="w-full max-w-[80%] mx-auto px-4 py-16 space-y-10">
+    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16 space-y-10">
 
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
         <div>
           <p className="text-xs tracking-widest text-gray-400 font-medium uppercase mb-1">
             Activity
           </p>
-          <h2 className="text-2xl font-black text-black">Coding Activity</h2>
-          <p className="text-sm text-gray-400 mt-0.5">
+          <h2 className="text-2xl md:text-3xl font-black text-black">Coding Activity</h2>
+          <p className="text-sm md:text-base text-gray-400 mt-0.5">
             My contributions over the last year.
           </p>
         </div>
-        <div className="flex gap-8 text-right">
+        <div className="flex gap-8 md:text-right">
           <div>
-            <p className="text-2xl font-black text-black">1,583</p>
+            <p className="text-2xl md:text-3xl font-black text-black">1,583</p>
             <p className="text-xs tracking-widest text-gray-400 uppercase">Total</p>
           </div>
           <div>
-            <p className="text-2xl font-black text-black">14</p>
+            <p className="text-2xl md:text-3xl font-black text-black">14</p>
             <p className="text-xs tracking-widest text-gray-400 uppercase">Streak</p>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function CodingActivitySection() {
       </div>
 
       {/* Bottom Row */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* Recent Activity */}
         <div>
