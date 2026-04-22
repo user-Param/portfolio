@@ -1,63 +1,9 @@
 "use client";
 
-import { a } from "motion/react-client";
+import { useState } from "react";
 
-
-function ReactIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <circle cx="12" cy="12" r="2.5" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
-      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
-    </svg>
-  );
-}
-
-function NextIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <circle cx="12" cy="12" r="10" />
-      <text x="7.5" y="16" fontSize="9" fontWeight="bold" fill="currentColor" stroke="none" fontFamily="serif">N</text>
-    </svg>
-  );
-}
-
-function TailwindIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <path d="M6 10c.5-2 2-3 3.5-3S12 8.5 12 10c.5-2 2-3 3.5-3S18 8.5 18 10" strokeLinecap="round" />
-      <path d="M6 15c.5-2 2-3 3.5-3S12 13.5 12 15c.5-2 2-3 3.5-3S18 13.5 18 15" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function FramerIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <path d="M5 3h14v6H5zM5 9h7l7 6H5zM5 15h7v6z" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function VercelIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <path d="M12 3L22 21H2L12 3z" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function TSIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <text x="6" y="16" fontSize="8" fontWeight="bold" fill="currentColor" stroke="none" fontFamily="monospace">TS</text>
-    </svg>
-  );
-}
-
-function GithubIcon({ className = "w-4 h-4" }) {
+// ── Icons ──────────────────────────────────────────────────────────────────
+function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" strokeLinecap="round" strokeLinejoin="round" />
@@ -65,9 +11,9 @@ function GithubIcon({ className = "w-4 h-4" }) {
   );
 }
 
-function LinkedInIcon() {
+function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-4 h-4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" strokeLinecap="round" strokeLinejoin="round" />
       <rect x="2" y="9" width="4" height="12" />
       <circle cx="4" cy="4" r="2" />
@@ -75,81 +21,211 @@ function LinkedInIcon() {
   );
 }
 
-function InstagramIcon() {
+function MailIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-4 h-4">
-      <rect x="2" y="2" width="20" height="20" rx="5" />
-      <circle cx="12" cy="12" r="5" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function MailIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-4 h-4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="M2 7l10 7 10-7" strokeLinecap="round" />
     </svg>
   );
 }
 
-const OSS_PROJECTS = [
-  { id: 1, name: "React",         link: "#", Icon: ReactIcon  },
-  { id: 2, name: "Next.js",       link: "#", Icon: NextIcon   },
-  { id: 3, name: "Tailwind CSS",  link: "#", Icon: TailwindIcon },
-  { id: 4, name: "Framer Motion", link: "#", Icon: FramerIcon },
-  { id: 5, name: "Vercel",        link: "#", Icon: VercelIcon },
-  { id: 6, name: "TypeScript",    link: "#", Icon: TSIcon     },
+function PhoneIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12.13 19.79 19.79 0 0 1 1.45 3.5 2 2 0 0 1 3.42 1.35h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SendIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <line x1="22" y1="2" x2="11" y2="13" />
+      <polygon points="22 2 15 22 11 13 2 9 22 2" />
+    </svg>
+  );
+}
+
+function CheckCircleIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" strokeLinecap="round" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
+  );
+}
+
+// ── Social Links Data ──────────────────────────────────────────────────────
+const SOCIALS = [
+  {
+    label: "LinkedIn",
+    handle: "paramjeet-singh-b566b036b",
+    href: "https://www.linkedin.com/in/paramjeet-singh-b566b036b",
+    Icon: LinkedInIcon,
+    description: "Connect with me professionally",
+  },
+  {
+    label: "GitHub",
+    handle: "paramjeetsinghpawar",
+    href: "https://github.com",
+    Icon: GithubIcon,
+    description: "Check out my open-source work",
+  },
+  {
+    label: "Email",
+    handle: "paramjeetsinghpawar25@gmail.com",
+    href: "mailto:paramjeetsinghpawar25@gmail.com",
+    Icon: MailIcon,
+    description: "Drop me a direct email",
+  },
+  {
+    label: "Phone",
+    handle: "+91 7734050945",
+    href: "tel:+917734050945",
+    Icon: PhoneIcon,
+    description: "Call or WhatsApp me",
+  },
 ];
 
-export default function OpensourceAndFooter() {
+// ── Main Component ─────────────────────────────────────────────────────────
+export default function ContactAndFooter() {
+  const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleSend = () => {
+    if (!message.trim()) return;
+    setSending(true);
+    // Simulate send — wire up your backend/email service here
+    setTimeout(() => {
+      setSending(false);
+      setSent(true);
+      setMessage("");
+      setName("");
+    }, 1200);
+  };
+
   return (
     <div className="w-full max-w-6xl mx-auto px-6 md:px-12">
 
-      {/* ── Opensource Section ── */}
-      <section className="py-16">
+      {/* ── Contact Section ── */}
+      <section className="py-16 space-y-10">
+
         {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl md:text-3xl font-black text-black">Opensource</h2>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors"
-          >
-            <GithubIcon />
-            Follow on GitHub
-          </a>
+        <div>
+          <p className="text-xs tracking-widest text-gray-400 font-medium uppercase mb-1">
+            Get in touch
+          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-black">Contact Me</h2>
+          <p className="text-sm md:text-base text-gray-400 mt-0.5 max-w-md">
+            Open to opportunities, collaborations, or just a quick chat about trading systems and distributed architecture.
+          </p>
         </div>
 
-        <p className="text-sm md:text-base text-gray-400 leading-relaxed max-w-lg mb-8">
-          This portfolio is built with modern, open-source technologies to ensure optimal
-          performance, accessibility, and a premium user experience. I strongly believe in giving back
-          to the community that builds the tools I use daily.
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        {/* OSS Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {OSS_PROJECTS.map(({ id, name, link, Icon }) => (
-            <a
-              key={id}
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 border border-gray-200 rounded-2xl px-4 py-3.5 bg-white hover:border-gray-400 hover:shadow-sm transition-all duration-200 group"
-            >
-              <span className="text-gray-400 group-hover:text-black transition-colors">
-                <Icon />
-              </span>
-              <div>
-                <p className="text-sm font-semibold text-black">{name}</p>
-                <p className="text-xs text-gray-400 group-hover:text-gray-600 transition-colors">
-                  View project →
-                </p>
+          {/* ── Left: Socials ── */}
+          <div className="space-y-3">
+            {SOCIALS.map(({ label, handle, href, Icon, description }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 border border-gray-200 rounded-2xl px-5 py-4 bg-white hover:border-gray-400 hover:shadow-sm transition-all duration-200 group"
+              >
+                <div className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:text-black group-hover:border-gray-400 transition-all shrink-0">
+                  <Icon />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-semibold text-black">{label}</p>
+                  </div>
+                  <p className="text-xs text-gray-400 truncate">{handle}</p>
+                </div>
+                <span className="ml-auto text-xs text-gray-300 group-hover:text-gray-500 transition-colors shrink-0">
+                  →
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* ── Right: Message Box ── */}
+          <div className="border border-gray-200 rounded-2xl p-6 bg-white flex flex-col gap-4">
+            <div>
+              <p className="text-sm font-semibold text-black mb-0.5">Say Hi 👋</p>
+              <p className="text-xs text-gray-400">
+                Send a quick message — I usually reply within 24 hours.
+              </p>
+            </div>
+
+            {sent ? (
+              <div className="flex-1 flex flex-col items-center justify-center gap-3 py-8 text-center">
+                <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-green-500">
+                  <CheckCircleIcon className="w-5 h-5" />
+                </div>
+                <p className="text-sm font-semibold text-black">Message sent!</p>
+                <p className="text-xs text-gray-400">Thanks for reaching out. I'll get back to you soon.</p>
+                <button
+                  onClick={() => setSent(false)}
+                  className="mt-2 text-xs text-gray-400 hover:text-black underline underline-offset-2 transition-colors"
+                >
+                  Send another
+                </button>
               </div>
-            </a>
-          ))}
+            ) : (
+              <>
+                {/* Name input */}
+                <div>
+                  <label className="text-xs text-gray-400 tracking-widest uppercase block mb-1.5">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Satoshi Nakamoto"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-black placeholder-gray-300 focus:outline-none focus:border-gray-400 transition-colors"
+                  />
+                </div>
+
+                {/* Message textarea */}
+                <div className="flex-1 flex flex-col">
+                  <label className="text-xs text-gray-400 tracking-widest uppercase block mb-1.5">
+                    Message
+                  </label>
+                  <textarea
+                    placeholder="Hey Paramjeet, I'd love to chat about..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    rows={5}
+                    className="w-full flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm text-black placeholder-gray-300 focus:outline-none focus:border-gray-400 transition-colors resize-none"
+                  />
+                </div>
+
+                {/* Send Button */}
+                <button
+                  onClick={handleSend}
+                  disabled={!message.trim() || sending}
+                  className="flex items-center justify-center gap-2 w-full bg-black text-white text-sm font-semibold rounded-xl py-3 hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                >
+                  {sending ? (
+                    <>
+                      <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      <SendIcon className="w-3.5 h-3.5" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </section>
 
@@ -160,21 +236,22 @@ export default function OpensourceAndFooter() {
             Built with Next.js, Tailwind CSS &amp; Framer Motion.
           </p>
           <p className="text-xs text-gray-400 mt-1">
-            © 2026 Uday Ahire. All rights reserved.
+            © 2026 Paramjeet Singh. All rights reserved.
           </p>
         </div>
 
         {/* Social Icons */}
         <div className="flex items-center gap-2">
           {[
-            { href: "#", Icon: GithubIcon    },
-            { href: "#", Icon: LinkedInIcon  },
-            { href: "#", Icon: InstagramIcon },
-            { href: "#", Icon: MailIcon      },
+            { href: "https://github.com/user-param", Icon: GithubIcon },
+            { href: "https://www.linkedin.com/in/paramjeet-singh-b566b036b", Icon: LinkedInIcon },
+            { href: "mailto:paramjeetsinghpawar25@gmail.com", Icon: MailIcon },
           ].map(({ href, Icon }, i) => (
             <a
               key={i}
               href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:border-gray-400 hover:text-black transition-all"
             >
               <Icon />
@@ -192,6 +269,7 @@ export default function OpensourceAndFooter() {
           </span>
         </div>
       </div>
-      </div>
+
+    </div>
   );
 }

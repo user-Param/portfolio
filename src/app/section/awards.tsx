@@ -1,40 +1,13 @@
 const CERTS = [
   {
     id: 1,
-    abbr: "AWS",
+    abbr: "FundedNext",
     verified: true,
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    issued: "Issued Dec 2025",
+    title: "FundedNext Funded Trader",
+    issuer: "FundedNext",
+    issued: "Issued Apr 2025",
     verify: "#",
-  },
-  {
-    id: 2,
-    abbr: "GCP",
-    verified: true,
-    title: "Google Cloud Professional Developer",
-    issuer: "Google Cloud",
-    issued: "Issued Aug 2024",
-    verify: "#",
-  },
-  {
-    id: 3,
-    abbr: "META",
-    verified: true,
-    title: "Meta Frontend Developer Professional Certificate",
-    issuer: "Coursera",
-    issued: "Issued Mar 2023",
-    verify: "#",
-  },
-  {
-    id: 4,
-    abbr: "CKAD",
-    verified: true,
-    title: "Certified Kubernetes Application Developer",
-    issuer: "The Linux Foundation",
-    issued: "Issued Nov 2024",
-    verify: "#",
-  },
+  }
 ];
 
 function ExternalLinkIcon() {

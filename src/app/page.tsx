@@ -1,9 +1,9 @@
 import { Hero } from "./section/hero";
 import { Navbar } from "./section/navbar";
 import AboutSection from "./section/about";
-import CodingActivitySection from "./section/activity-section";
+import WorkExperienceSection from "./section/activity-section";
 import SelectedProjectsSection from "./section/project";
-import RecentWritingsSection from "./section/writing";
+import ContactAndFooter from "./section/footer";
 import CertificationsSection from "./section/awards";
 import OpensourceAndFooter from "./section/footer";
 
@@ -24,15 +24,11 @@ export default function Home() {
         </section>
 
         <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
-          <CodingActivitySection/>
-        </section>
-
-        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
           <SelectedProjectsSection/>
         </section>
 
         <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
-          <RecentWritingsSection/>
+          <WorkExperienceSection/>
         </section>
 
         <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
@@ -40,7 +36,7 @@ export default function Home() {
         </section>
 
         <section className="py-12 md:py-20 lg:py-24">
-          <OpensourceAndFooter/>
+          <ContactAndFooter/>
         </section>
       </main>
     </div>

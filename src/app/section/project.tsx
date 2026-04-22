@@ -9,9 +9,9 @@ const PROJECTS = [
     featured: true,
     title: "Blink - Backtesting Engine",
     description:
-      "Developed a Backtesting Engine with integrated live algo trading a unified platform for research backtest and deploy",
-    tags: ["C++", "React", "Typescript", "Python"],
-    source: "#",
+      "Engineered an end-to-end trading system that unifies backtesting and live execution, accelerating strategy development and deployment.",
+    tags: ["C++", "vite", "Typescript", "Python"],
+    source: "https://github.com/user-Param/Blink",
   },
   {
     id: 2,
@@ -19,9 +19,9 @@ const PROJECTS = [
     featured: true,
     title: "Jinx - High Frequency Trading Platform",
     description:
-      "A modern, accessible component library providing robust UI elements and standardized design tokens. Built on Radix UI primitives with full keyboard navigation support.",
-    tags: ["React", "TailwindCSS", "Framer Motion", "Radix UI"],
-    source: "#",
+      "Jinx is an ultra high frequency trading platform engineered for real time market execution and strategy deployment. Built with a high-performance C++ core leveraging asynchronous networking, it processes high throughput market data streams with minimal latency. The system features a replicated in-memory order book for fault tolerance, a lock-free event pipeline for efficient market processing, and advanced pre-trade risk validation using microstructure models such as order book imbalance and microprice. Designed with a modular and distributed architecture, Jinx supports seamless scaling, failover, and future integration with hardware acceleration (e.g., FPGA). A modern Next.js interface provides real-time monitoring",
+    tags: ["C++", "Next.js", "Redis"],
+    source: "https://github.com/user-Param/Jinx",
   },
   {
     id: 3,
@@ -40,8 +40,8 @@ const PROJECTS = [
     title: "Ava - Market Making Bot",
     description:
       "A structured digital governance platform designed to streamline rural administration operations. Features centralized resident management, digital record keeping, and service delivery.",
-    tags: ["PHP", "MySQL", "JavaScript", "HTML"],
-    source: "#",
+    tags: ["C", "Vulkan", "ImGui"],
+    source: "https://github.com/user-Param/Market-Making-Bot",
   },
   {
     id: 5,
@@ -50,8 +50,8 @@ const PROJECTS = [
     title: "Merchant - Sales Dashboard",
     description:
       "A structured digital governance platform designed to streamline rural administration operations. Features centralized resident management, digital record keeping, and service delivery.",
-    tags: ["PHP", "MySQL", "JavaScript", "HTML"],
-    source: "#",
+    tags: ["Next.js", "Nest.js", "Redis", "Postgres"],
+    source: "https://github.com/user-Param/Merchant-",
   },
   {
     id: 6,
@@ -60,8 +60,8 @@ const PROJECTS = [
     title: "IssueX - Community Driven Inconvenience Resolving Platform",
     description:
       "A structured digital governance platform designed to streamline rural administration operations. Features centralized resident management, digital record keeping, and service delivery.",
-    tags: ["PHP", "MySQL", "JavaScript", "HTML"],
-    source: "#",
+    tags: ["React", "Typescript", "Postgres"],
+    source: "https://github.com/user-Param/IssueX",
   },
 ];
 
@@ -128,7 +128,7 @@ export default function SelectedProjectsSection() {
         {filtered.map((project) => (
           <div
             key={project.id}
-            className="flex flex-col border border-gray-100 rounded-3xl p-6 bg-white hover:border-black hover:shadow-lg transition-all duration-300 group"
+            className="flex flex-col border border-gray-100 rounded-3xl p-6 bg-white hover:border-black/10 hover:shadow-lg transition-all duration-300 group"
           >
             {/* Category + Featured badges */}
             <div className="flex items-center gap-2 mb-4">
@@ -140,6 +140,9 @@ export default function SelectedProjectsSection() {
                   Featured
                 </span>
               )}
+            </div>
+            <div className="border border-black/10 rounded-xl h-[150px] w-full">
+              demo video
             </div>
 
             {/* Title */}

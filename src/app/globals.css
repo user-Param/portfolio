@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+@layer base {
+  .dark body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+  
+  .dark div, 
+  .dark section, 
+  .dark nav, 
+  .dark footer,
+  .dark main {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark p, .dark span, .dark text {
+    color: #ffffff !important;
+  }
+  
+  .dark svg {
+    stroke: #ffffff;
+  }
+  
+  .dark .bg-white {
+    background-color: transparent !important;
+  }
+  
+  .dark .bg-gray-50, .dark .bg-black {
+    background-color: rgb(0, 0, 0) !important;
+  }
+
+  .dark .text-gray-400, .dark .text-gray-500, .dark .text-gray-600, .dark .text-gray-700 {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .dark .border-gray-100, .dark .border-gray-200 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}

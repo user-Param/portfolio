@@ -1,3 +1,5 @@
+"use client";
+
 export const Navbar = () => {
   return (
     <nav className="h-[70px] px-4 md:px-8 flex items-center justify-between border-b border-black/5 bg-white sticky top-0 z-50">
@@ -28,13 +30,17 @@ export const Navbar = () => {
             />
           </div>
 
-          <button className="px-4 py-2 text-xs md:text-sm font-semibold text-black rounded-full border border-gray-200 hover:bg-gray-50 transition-colors">
+          <button 
+            onClick={() => document.documentElement.classList.toggle('dark')}
+            className="px-4 py-2 text-xs md:text-sm font-semibold text-black rounded-full bg-black border border-gray-200 transition-colors dark:text-white dark:border-white/20"
+          >
             Theme
           </button>
 
-          <button className="px-4 py-2 text-xs md:text-sm font-semibold text-white rounded-full bg-black hover:bg-gray-800 transition-colors">
+          <a href="mailto:paramjeetsinghpawar25@gmail.com?subject=Lets%20work%20Together&body=Hi%20Param,"
+          className="px-4 py-2 text-xs md:text-sm font-semibold text-white rounded-full bg-black hover:bg-gray-800 transition-colors">
             Hire me
-          </button>
+          </a>
         </div>
 
       </div>

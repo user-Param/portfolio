@@ -1,285 +1,260 @@
 "use client";
 
-// ── Stable seeded grid (module-level, never re-generates) ──────────────────
-const GRID = (() => {
-  let seed = 42;
-  const rand = () => {
-    seed = (seed * 16807 + 0) % 2147483647;
-    return (seed - 1) / 2147483646;
-  };
-  return Array.from({ length: 52 }, () =>
-    Array.from({ length: 7 }, () => {
-      const r = rand();
-      return r < 0.25 ? 0 : r < 0.45 ? 1 : r < 0.65 ? 2 : r < 0.82 ? 3 : 4;
-    })
-  );
-})();
-
-// ── Constants ──────────────────────────────────────────────────────────────
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-const ACTIVITY = [
+// ── Work Experience Data ───────────────────────────────────────────────────
+const EXPERIENCES = [
   {
-    repo: "udayahire2/udx-ui-kit",
-    time: "2 hours ago",
-    message: "Implemented new interactive components",
-    tag: "feat/ui-components",
-    type: "commit",
+    role: "Full-stack Software Engineer",
+    company: "100xDevs",
+    location: "Delhi NCR, India (Remote)",
+    period: "Nov 2025 – Present",
+    type: "fulltime",
+    bullets: [
+      "Led end-to-end design and development of a high-performance algorithmic trading platform built on a low-latency C++ core with a modern React-based terminal.",
+      "Engineered a distributed, microservices-style architecture with WebSocket-based real-time data streaming, a multi-threaded datafeed system, and a high-speed execution engine with integrated risk management.",
+      "Implemented hybrid execution modes for live trading and historical backtesting, along with an embedded browser-based IDE for strategy development, real-time visualization, and seamless strategy deployment.",
+      "Architected a simulated crypto CFD trading engine (BTC, ETH, SOL) as an event-driven microservice system wired through Redis Streams and QuestDB snapshots, so trades replay deterministically and positions survive restarts.",
+      "Built a real-time portfolio tracker using TypeScript with Redis caching, precomputed PnL metrics, and load-balanced WebSocket pipelines for low-latency updates.",
+    ],
+    tags: ["C++", "React", "WebSockets", "Redis", "QuestDB", "TypeScript"],
   },
   {
-    repo: "udayahire2/nmu",
-    time: "5 hours ago",
-    message: "Fix: Resolved hydration mismatch in layout",
-    tag: "#12",
-    type: "pr",
-  },
-  {
-    repo: "framer/motion",
-    time: "1 day ago",
-    message: "Starred framer/motion repository",
-    tag: "starred",
-    type: "star",
-  },
-  {
-    repo: "udayahire2/gram-panchayat",
-    time: "2 days ago",
-    message: "Merged PR #8: Database configuration update",
-    tag: "main",
-    type: "merge",
+    role: "Full-stack Software Engineer Intern",
+    company: "Peples Brands Lab",
+    location: "Delhi NCR, India (Remote)",
+    period: "Jun 2025 – Nov 2025",
+    type: "internship",
+    bullets: [
+      "Drove an ecommerce SaaS from idea to MVP in ~3 months by designing a scalable backend + frontend architecture, implementing feed/cart/order/payment flows.",
+      "Built a reusable Next.js + Tailwind component library that replaced spreadsheet workflows and cut new dashboard view build time from days to hours.",
+      "Partnered with founders from zero to launch to ship the first production website, implementing a modular component system (hero, feature rows, FAQ, CTA) and wiring in analytics and env-based config.",
+      "Enabled the team to roll out, A/B test, and rollback new pages safely within days instead of weeks.",
+    ],
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "SaaS", "A/B Testing"],
   },
 ];
 
+const PROJECTS = [
+  {
+    name: "Jinx – High Frequency Trading Platform",
+    bullets: [
+      "Built an ultra low-latency, event-driven HFT system in C++, leveraging Boost.Asio and Boost.Beast for efficient asynchronous socket I/O, enabling fine-grained data flow control and high-throughput stream processing.",
+      "Implemented a replicated in-memory order book for fault tolerance and consistent state management, enabling seamless failover, and used a lock-free event queue to process market events with minimal contention.",
+      "Consumed market events from a lock-free queue and applied trading strategies, with a modular design allowing future integration with hardware acceleration (e.g., FPGA) and routing.",
+      "Only risk-validated orders using pre-trade checks (position sizing, margin, leverage limits, stop-loss, trading session) and microstructure models (order book imbalance, microprice) to avoid adverse trades in fast markets.",
+    ],
+    tags: ["C++", "Boost.Asio", "Boost.Beast", "HFT", "Order Book"],
+  },
+  {
+    name: "Blink – Backtesting Engine",
+    bullets: [
+      "Built a low-latency, event-driven quantitative research and backtesting platform in C++, enabling users to develop strategies, run simulations on historical datasets, and execute in live markets with real capital.",
+      "Utilized Postgres for high-performance time-series market data, providing ultra-low latency ingestion, high throughput, and efficient analytical queries.",
+      "Leveraged Boost.Asio and Boost.Beast for fine-grained control over the networking layer, enabling efficient asynchronous I/O, high-throughput data streams, and low-latency system performance.",
+      "Built a React + TypeScript frontend providing an interactive environment for strategy development, visualization, and real-time monitoring.",
+    ],
+    tags: ["C++", "PostgreSQL", "React", "TypeScript", "Quant Research"],
+  },
+  {
+    name: "Merchant Dashboard",
+    bullets: [
+      "Built a scalable, real-time merchant analytics platform processing ~10K events per minute, designed with a modular monolith architecture that cleanly separates ingestion, processing, and serving layers.",
+      "Backend is stateless NestJS, deployed behind an Nginx load balancer for horizontal scaling across multiple instances.",
+      "Kafka decouples high-volume event ingestion from processing, ensuring resilience to traffic spikes and preventing backpressure on the API.",
+      "A dedicated precompute worker consumes events asynchronously, maintains aggregated metrics, and stores them for O(1) dashboard read queries—delivering sub-500ms analytics responses at scale.",
+    ],
+    tags: ["NestJS", "Kafka", "PostgreSQL", "Redis", "Nginx"],
+  },
+];
+
+const TRADING_SKILLS = {
+  exchanges: ["CoinDCX", "Zerodha", "Groww", "Upstox", "Binance", "Bybit", "Delta Exchange", "Exness"],
+  proprietary: ["FundedNext", "Blueberry Funded", "Klein Funded", "Blue Guardian Funded"],
+  tools: ["TradingView", "MetaTrader 5", "Jupyter Notebook", "QuantConnect", "MetaTrader 4"],
+  indicators: ["EMA", "RSI", "Bollinger Bands", "MACD", "SuperTrend", "Footprints", "Orderbook", "Fibonacci", "Smart Money Concept", "Breakouts", "Volume", "Trading Sessions"],
+};
+
 // ── Helpers ────────────────────────────────────────────────────────────────
-function levelColor(level) {
-  const colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
-  return colors[level] ?? colors[0];
+function BriefcaseIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+      <line x1="12" y1="12" x2="12" y2="12" />
+      <path d="M2 12h20" />
+    </svg>
+  );
 }
 
-function TypeIcon({ type }) {
-  const cls = "w-4 h-4";
-  if (type === "commit")
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={cls}>
-        <circle cx="12" cy="12" r="3" />
-        <line x1="3" y1="12" x2="9" y2="12" />
-        <line x1="15" y1="12" x2="21" y2="12" />
-      </svg>
-    );
-  if (type === "pr")
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={cls}>
-        <circle cx="6" cy="6" r="2" />
-        <circle cx="18" cy="6" r="2" />
-        <circle cx="6" cy="18" r="2" />
-        <path d="M8 6h4a4 4 0 0 1 4 4v4" strokeLinecap="round" />
-        <path d="M6 8v8" strokeLinecap="round" />
-      </svg>
-    );
-  if (type === "star")
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={cls}>
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    );
-  if (type === "merge")
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={cls}>
-        <circle cx="6" cy="6" r="2" />
-        <circle cx="6" cy="18" r="2" />
-        <circle cx="18" cy="6" r="2" />
-        <path d="M6 8v8" strokeLinecap="round" />
-        <path d="M8 6h4a4 4 0 0 1 4 4" strokeLinecap="round" />
-      </svg>
-    );
-  return null;
+function CodeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  );
+}
+
+function TrendingIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+      <polyline points="17 6 23 6 23 12" />
+    </svg>
+  );
+}
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className={className}>
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
 }
 
 // ── Main Component ─────────────────────────────────────────────────────────
-export default function CodingActivitySection() {
-  const monthLabels = MONTHS.map((m, i) => ({
-    label: m,
-    x: Math.round(i * (52 / 12)),
-  }));
-
+export default function WorkExperienceSection() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16 space-y-10">
+    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16 space-y-14">
 
-      {/* Header */}
+      {/* ── Header ── */}
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
         <div>
           <p className="text-xs tracking-widest text-gray-400 font-medium uppercase mb-1">
-            Activity
+            Career
           </p>
-          <h2 className="text-2xl md:text-3xl font-black text-black">Coding Activity</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-black">Work Experience</h2>
           <p className="text-sm md:text-base text-gray-400 mt-0.5">
-            My contributions over the last year.
+            Building systems at the intersection of performance and scale.
           </p>
         </div>
         <div className="flex gap-8 md:text-right">
           <div>
-            <p className="text-2xl md:text-3xl font-black text-black">1,583</p>
-            <p className="text-xs tracking-widest text-gray-400 uppercase">Total</p>
-          </div>
-          <div>
-            <p className="text-2xl md:text-3xl font-black text-black">14</p>
-            <p className="text-xs tracking-widest text-gray-400 uppercase">Streak</p>
+            <p className="text-2xl md:text-3xl font-black text-black">~1 yr</p>
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Experience</p>
           </div>
         </div>
       </div>
 
-      {/* Heatmap */}
-      <div className="border border-gray-200 rounded-2xl p-5 bg-white">
-        <div className="overflow-x-auto">
-          <svg
-            width={GRID.length * 14}
-            height={7 * 14 + 24}
-            style={{ display: "block" }}
-          >
-            {/* Month labels */}
-            {monthLabels.map(({ label, x }) => (
-              <text
-                key={label}
-                x={x * 14}
-                y={12}
-                fontSize={10}
-                fill="#9ca3af"
-                fontFamily="monospace"
-              >
-                {label}
-              </text>
-            ))}
-
-            {/* Cells */}
-            {GRID.map((week, wi) =>
-              week.map((level, di) => (
-                <rect
-                  key={`${wi}-${di}`}
-                  x={wi * 14}
-                  y={di * 14 + 18}
-                  width={11}
-                  height={11}
-                  rx={2.5}
-                  fill={levelColor(level)}
-                />
-              ))
-            )}
-          </svg>
+      {/* ── Work Experience Cards ── */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-2 mb-2">
+          <BriefcaseIcon className="w-4 h-4 text-gray-400" />
+          <p className="text-sm font-semibold text-black">Positions</p>
         </div>
 
-        {/* Legend */}
-        <div className="flex items-center justify-between mt-3">
-          <p className="text-xs text-gray-400">1583 activities in 2026</p>
-          <div className="flex items-center gap-1.5 text-xs text-gray-400">
-            <span>Less</span>
-            {[0, 1, 2, 3, 4].map((l) => (
-              <span
-                key={l}
-                className="inline-block w-3 h-3 rounded-sm"
-                style={{ backgroundColor: levelColor(l) }}
-              />
-            ))}
-            <span>More</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        {/* Recent Activity */}
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="w-4 h-4 text-gray-400"
-            >
-              <polyline points="13 2 13 9 20 9" />
-              <polyline points="11 22 11 15 4 15" />
-              <path d="M3 3l18 18" />
-            </svg>
-            <p className="text-sm font-semibold text-black">Recent Activity</p>
-          </div>
-
-          <div className="space-y-5">
-            {ACTIVITY.map((a, i) => (
-              <div key={i} className="flex gap-3">
-                <div className="mt-0.5 w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 flex-shrink-0">
-                  <TypeIcon type={a.type} />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs font-semibold text-black">{a.repo}</span>
-                    <span className="text-xs text-gray-400">{a.time}</span>
-                  </div>
-                  <p className="text-xs text-gray-500 mt-0.5">{a.message}</p>
-                  <span className="inline-block mt-1.5 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-md font-mono">
-                    {a.tag}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Overview */}
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="w-4 h-4 text-gray-400"
-            >
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-            <p className="text-sm font-semibold text-black">Overview</p>
-          </div>
-
-          <div className="space-y-3">
-            {/* Pull Requests */}
-            <div className="border border-gray-200 rounded-2xl p-5">
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">
-                Pull Requests
-              </p>
-              <p className="text-3xl font-black text-black">142</p>
-              <p className="text-xs text-gray-400 mt-1">+12% from last month</p>
-            </div>
-
-            {/* Code Reviews */}
-            <div className="border border-gray-200 rounded-2xl p-5">
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">
-                Code Reviews
-              </p>
-              <p className="text-3xl font-black text-black">85</p>
-              <p className="text-xs text-gray-400 mt-1">+5% from last month</p>
-            </div>
-
-            {/* Top 1% Badge */}
-            <div className="border border-gray-200 rounded-2xl p-5 flex items-center justify-between">
+        {EXPERIENCES.map((exp, i) => (
+          <div key={i} className="border border-gray-200 rounded-2xl p-6 bg-white space-y-4">
+            {/* Header Row */}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
               <div>
-                <p className="text-sm font-bold text-black">Top 1%</p>
-                <p className="text-xs font-mono text-gray-400 mt-0.5">
-                  Global Contributor
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="text-base font-black text-black">{exp.role}</h3>
+                  {exp.type === "internship" && (
+                    <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-md font-mono">
+                      Internship
+                    </span>
+                  )}
+                  {exp.type === "fulltime" && (
+                    <span className="text-xs bg-black text-white px-2 py-0.5 rounded-md font-mono">
+                      Full-time
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-gray-500 mt-0.5">
+                  {exp.company} · {exp.location}
                 </p>
               </div>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                className="w-5 h-5 text-gray-300"
-              >
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
+              <span className="text-xs font-mono text-gray-400 whitespace-nowrap shrink-0 mt-1">
+                {exp.period}
+              </span>
+            </div>
+
+            {/* Bullets */}
+            <ul className="space-y-2">
+              {exp.bullets.map((b, j) => (
+                <li key={j} className="flex gap-2.5 text-xs text-gray-600 leading-relaxed">
+                  <CheckIcon className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {exp.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs bg-gray-50 border border-gray-200 text-gray-500 px-2 py-0.5 rounded-md font-mono"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Trading & Finance ── */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 mb-2">
+          <TrendingIcon className="w-4 h-4 text-gray-400" />
+          <p className="text-sm font-semibold text-black">Trading & Finance</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Exchanges & Brokers */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Exchanges & Brokers</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.exchanges.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Proprietary Trading */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Proprietary Trading</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.proprietary.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 mt-1">
+              Funded accounts across global prop firms
+            </p>
+          </div>
+
+          {/* Research Tools */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Research Tools</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.tools.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Indicators */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Indicators & Concepts</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.indicators.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
             </div>
           </div>
         </div>
-
       </div>
+
     </section>
   );
 }
