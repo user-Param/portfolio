@@ -194,12 +194,14 @@ export default function AboutSection() {
 
           <div className="space-y-4">
             <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-              I build software solutions that operate in real time environments where latency, execution, and reliability directly impact outcomes.
+              I build scalable software solutions designed for performance, reliability, and efficiency. My work focuses on developing high performance systems that can handle complex workflows, process large volumes of data, and execute with precision.
             </p>
             <p className="text-gray-500 text-sm md:text-base leading-relaxed">
-              My work focuses on scalable, high-performance systems designed to perform under pressure. I build infrastructure that can handle continuous, high-volume data streams, process information efficiently, and execute with precision.
-Alongside engineering, I have been actively involved in centralized/decentralized trading since 2022. This experience has shaped how I think about High Performant systems not just in terms of code, but in terms of behavior under high pressure conditions.
-  I am interested in building systems that move beyond static applications, systems that process, decide, and execute in real time, with minimal delay and maximum reliability.
+              
+
+I enjoy working across the stack building robust backend systems, intuitive user interfaces, and seamless integrations that deliver reliable and efficient experiences. My approach to engineering is shaped by working in demanding environments, where system behavior, performance, and stability matter as much as clean code.
+
+I’m particularly interested in building systems that go beyond static applications software that is responsive, efficient, and capable of handling real-world complexity at scale.
             </p>
             
             

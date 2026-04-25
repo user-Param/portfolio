@@ -10,7 +10,7 @@ const PROJECTS = [
     title: "Blink - Backtesting Engine",
     description:
       "Engineered an end-to-end trading system that unifies backtesting and live execution, accelerating strategy development and deployment.",
-    tags: ["C++", "vite", "Typescript", "Python"],
+    tags: ["C++", "React", "Typescript", "Python"],
     source: "https://github.com/user-Param/Blink",
   },
   {
@@ -20,17 +20,17 @@ const PROJECTS = [
     title: "Jinx - High Frequency Trading Platform",
     description:
       "Jinx is an ultra high frequency trading platform engineered for real time market execution and strategy deployment. Built with a high-performance C++ core leveraging asynchronous networking, it processes high throughput market data streams with minimal latency. The system features a replicated in-memory order book for fault tolerance, a lock-free event pipeline for efficient market processing, and advanced pre-trade risk validation using microstructure models such as order book imbalance and microprice. Designed with a modular and distributed architecture, Jinx supports seamless scaling, failover, and future integration with hardware acceleration (e.g., FPGA). A modern Next.js interface provides real-time monitoring",
-    tags: ["C++", "Next.js", "Redis"],
+    tags: ["C++", "Next.js"],
     source: "https://github.com/user-Param/Jinx",
   },
   {
     id: 3,
     category: "Fullstack",
-    featured: true,
+    featured: false,
     title: "7x - Solana Based Crypto Tumbler",
     description:
       "A high-performance web application scaffolding emphasizing modern tooling and strict type safety. Features fast build times, pre-configured linting, and CI-ready setup.",
-    tags: ["React", "TypeScript", "Vite", "ESLint"],
+    tags: ["React", "TypeScript"],
     source: "#",
   },
   {
@@ -141,9 +141,9 @@ export default function SelectedProjectsSection() {
                 </span>
               )}
             </div>
-            <div className="border border-black/10 rounded-xl h-[150px] w-full">
+            {/* <div className="border border-black/10 rounded-xl h-[150px] w-full">
               demo video
-            </div>
+            </div> */}
 
             {/* Title */}
             <h3 className="text-lg font-bold text-black mb-3 leading-tight group-hover:text-black transition-colors">
