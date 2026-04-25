@@ -11,7 +11,7 @@
   .dark nav, 
   .dark footer,
   .dark main {
-    background-color: transparent !important;
+    background-color: #000000 !important;
     border-color: rgba(255, 255, 255, 0.15) !important;
   }
 
