@@ -9,7 +9,7 @@ const PROJECTS = [
     featured: true,
     title: "Blink - Backtesting Engine",
     description:
-      "Engineered an end-to-end trading system that unifies backtesting and live execution, accelerating strategy development and deployment.",
+      "Blink is a high-performance backtesting engine designed to simulate and evaluate trading strategies with speed and accuracy, enabling efficient analysis and optimization before deployment",
     tags: ["C++", "React", "Typescript", "Python"],
     source: "https://github.com/user-Param/Blink",
   },
@@ -19,7 +19,7 @@ const PROJECTS = [
     featured: true,
     title: "Jinx - High Frequency Trading Platform",
     description:
-      "Jinx is an ultra high frequency trading platform engineered for real time market execution and strategy deployment. Built with a high-performance C++ core leveraging asynchronous networking, it processes high throughput market data streams with minimal latency. The system features a replicated in-memory order book for fault tolerance, a lock-free event pipeline for efficient market processing, and advanced pre-trade risk validation using microstructure models such as order book imbalance and microprice. Designed with a modular and distributed architecture, Jinx supports seamless scaling, failover, and future integration with hardware acceleration (e.g., FPGA). A modern Next.js interface provides real-time monitoring",
+      "Jinx is a high-frequency trading (HFT) bot designed for ultra-fast execution, processing market data and executing trades with minimal latency to capture micro-level opportunities in fast-moving markets.",
     tags: ["C++", "Next.js"],
     source: "https://github.com/user-Param/Jinx",
   },
@@ -29,7 +29,7 @@ const PROJECTS = [
     featured: false,
     title: "7x - Solana Based Crypto Tumbler",
     description:
-      "A high-performance web application scaffolding emphasizing modern tooling and strict type safety. Features fast build times, pre-configured linting, and CI-ready setup.",
+      "7x is a crypto privacy tool focused on secure and compliant transaction handling while protecting user confidentiality.",
     tags: ["React", "TypeScript"],
     source: "#",
   },
@@ -39,8 +39,8 @@ const PROJECTS = [
     featured: true,
     title: "Ava - Market Making Bot",
     description:
-      "A structured digital governance platform designed to streamline rural administration operations. Features centralized resident management, digital record keeping, and service delivery.",
-    tags: ["C", "Vulkan", "ImGui"],
+      "Ava is an arbitrage trading bot designed to identify price inefficiencies across multiple markets and execute trades efficiently, enabling consistent capture of cross-platform opportunities.",
+    tags: ["C++", "Next", "CMake"],
     source: "https://github.com/user-Param/Market-Making-Bot",
   },
   {
@@ -49,7 +49,7 @@ const PROJECTS = [
     featured: false,
     title: "Merchant - Sales Dashboard",
     description:
-      "A structured digital governance platform designed to streamline rural administration operations. Features centralized resident management, digital record keeping, and service delivery.",
+      "Merchant is a scalable analytics platform that processes high-volume data using Kafka, PostgreSQL, and Redis to deliver fast, real-time insights.",
     tags: ["Next.js", "Nest.js", "Redis", "Postgres"],
     source: "https://github.com/user-Param/Merchant-",
   },
@@ -59,7 +59,7 @@ const PROJECTS = [
     featured: false,
     title: "IssueX - Community Driven Inconvenience Resolving Platform",
     description:
-      "A structured digital governance platform designed to streamline rural administration operations. Features centralized resident management, digital record keeping, and service delivery.",
+      "IssueX is a collaborative platform for sharing problems and building better solutions together through community-driven contributions.",
     tags: ["React", "Typescript", "Postgres"],
     source: "https://github.com/user-Param/IssueX",
   },
