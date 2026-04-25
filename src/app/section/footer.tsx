@@ -68,7 +68,7 @@ const SOCIALS = [
   {
     label: "GitHub",
     handle: "paramjeetsinghpawar",
-    href: "https://github.com",
+    href: "https://github.com/user-param",
     Icon: GithubIcon,
     description: "Check out my open-source work",
   },
@@ -152,81 +152,8 @@ export default function ContactAndFooter() {
             ))}
           </div>
 
-          {/* ── Right: Message Box ── */}
-          <div className="border border-gray-200 rounded-2xl p-6 bg-white flex flex-col gap-4">
-            <div>
-              <p className="text-sm font-semibold text-black mb-0.5">Say Hi 👋</p>
-              <p className="text-xs text-gray-400">
-                Send a quick message — I usually reply within 24 hours.
-              </p>
-            </div>
-
-            {sent ? (
-              <div className="flex-1 flex flex-col items-center justify-center gap-3 py-8 text-center">
-                <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-green-500">
-                  <CheckCircleIcon className="w-5 h-5" />
-                </div>
-                <p className="text-sm font-semibold text-black">Message sent!</p>
-                <p className="text-xs text-gray-400">Thanks for reaching out. I'll get back to you soon.</p>
-                <button
-                  onClick={() => setSent(false)}
-                  className="mt-2 text-xs text-gray-400 hover:text-black underline underline-offset-2 transition-colors"
-                >
-                  Send another
-                </button>
-              </div>
-            ) : (
-              <>
-                {/* Name input */}
-                <div>
-                  <label className="text-xs text-gray-400 tracking-widest uppercase block mb-1.5">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Satoshi Nakamoto"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-black placeholder-gray-300 focus:outline-none focus:border-gray-400 transition-colors"
-                  />
-                </div>
-
-                {/* Message textarea */}
-                <div className="flex-1 flex flex-col">
-                  <label className="text-xs text-gray-400 tracking-widest uppercase block mb-1.5">
-                    Message
-                  </label>
-                  <textarea
-                    placeholder="Hey Paramjeet, I'd love to chat about..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    rows={5}
-                    className="w-full flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm text-black placeholder-gray-300 focus:outline-none focus:border-gray-400 transition-colors resize-none"
-                  />
-                </div>
-
-                {/* Send Button */}
-                <button
-                  onClick={handleSend}
-                  disabled={!message.trim() || sending}
-                  className="flex items-center justify-center gap-2 w-full bg-black text-white text-sm font-semibold rounded-xl py-3 hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
-                >
-                  {sending ? (
-                    <>
-                      <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Sending…
-                    </>
-                  ) : (
-                    <>
-                      <SendIcon className="w-3.5 h-3.5" />
-                      Send Message
-                    </>
-                  )}
-                </button>
-              </>
-            )}
           </div>
-        </div>
+          
       </section>
 
       {/* ── Footer ── */}

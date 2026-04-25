@@ -72,8 +72,7 @@ export default function IntroCard() {
               Full-stack developer
             </p>
             <p className="text-sm md:text-base text-gray-500 leading-relaxed max-w-md">
-              Building low-latency trading systems on Solana and sharpening
-              execution in live markets.
+              Developing scalable software solutions with a focus on performance, user experience, and reliability
             </p>
           </div>
 
