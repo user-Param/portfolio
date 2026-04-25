@@ -30,7 +30,7 @@ const PROJECTS = [
     title: "7x - Solana Based Crypto Tumbler",
     description:
       "7x is a crypto privacy tool focused on secure and compliant transaction handling while protecting user confidentiality.",
-    tags: ["React", "TypeScript"],
+    tags: ["Next.js", "Rust"],
     source: "#",
   },
   {
@@ -113,7 +113,7 @@ export default function SelectedProjectsSection() {
               onClick={() => setActiveFilter(f)}
               className={`px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
                 activeFilter === f
-                  ? "bg-white text-black shadow-sm ring-1 ring-black/5"
+                  ? "bg-white text-gray shadow-sm ring-1 ring-black/5"
                   : "text-gray-400 hover:text-gray-600"
               }`}
             >

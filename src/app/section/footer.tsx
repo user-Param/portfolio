@@ -160,7 +160,7 @@ export default function ContactAndFooter() {
       <footer className="border-t border-gray-100 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left">
           <p className="text-sm text-gray-500">
-            Built with Next.js, Tailwind CSS &amp; Framer Motion.
+  
           </p>
           <p className="text-xs text-gray-400 mt-1">
             © 2026 Paramjeet Singh. All rights reserved.

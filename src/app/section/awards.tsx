@@ -53,7 +53,7 @@ export default function CertificationsSection() {
           >
             {/* Top row: abbr badge + VERIFIED */}
             <div className="flex items-center justify-between mb-6">
-              <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md tracking-wide">
+              <span className="text-xs font-semibold text-gray-500 px-2.5 py-1 rounded-md tracking-wide">
                 {cert.abbr}
               </span>
               {cert.verified && (

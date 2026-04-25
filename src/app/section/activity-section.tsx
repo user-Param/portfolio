@@ -150,12 +150,12 @@ export default function WorkExperienceSection() {
                 <div className="flex items-center gap-2 flex-wrap">
                   <h3 className="text-base font-black text-black">{exp.role}</h3>
                   {exp.type === "internship" && (
-                    <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-md font-mono">
+                    <span className="text-xs  text-gray-500 px-2 py-0.5 rounded-md font-mono">
                       Internship
                     </span>
                   )}
                   {exp.type === "fulltime" && (
-                    <span className="text-xs bg-black text-white px-2 py-0.5 rounded-md font-mono">
+                    <span className="text-xs text-white px-2 py-0.5 rounded-md font-mono">
                       Full-time
                     </span>
                   )}
