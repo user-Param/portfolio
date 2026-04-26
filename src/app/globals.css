@@ -24,7 +24,7 @@
   }
   
   .dark .bg-white {
-    background-color: transparent !important;
+    background-color: #000000 !important;
   }
   
   .dark .bg-gray-50, .dark .bg-black {
