@@ -25,16 +25,6 @@ const PROJECTS = [
   },
   {
     id: 3,
-    category: "Fullstack",
-    featured: false,
-    title: "7x - Solana Based Crypto Tumbler",
-    description:
-      "7x is a crypto privacy tool focused on secure and compliant transaction handling while protecting user confidentiality.",
-    tags: ["Next.js", "Rust"],
-    source: "#",
-  },
-  {
-    id: 4,
     category: "Backend",
     featured: true,
     title: "Ava - Market Making Bot",
@@ -44,7 +34,7 @@ const PROJECTS = [
     source: "https://github.com/user-Param/Market-Making-Bot",
   },
   {
-    id: 5,
+    id: 4,
     category: "Fullstack",
     featured: false,
     title: "Merchant - Sales Dashboard",
@@ -54,7 +44,7 @@ const PROJECTS = [
     source: "https://github.com/user-Param/Merchant-",
   },
   {
-    id: 6,
+    id: 5,
     category: "Fullstack",
     featured: false,
     title: "IssueX - Community Driven Inconvenience Resolving Platform",
