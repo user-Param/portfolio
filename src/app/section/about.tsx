@@ -11,41 +11,6 @@ const skills = [
     ),
   },
   {
-  name: "Rust",
-  icon: (
-    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className="w-6 h-6 md:w-7 md:h-7">
-      {/* 8-tooth gear */}
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-        <rect
-          key={angle}
-          x="11.1"
-          y="1.5"
-          width="1.8"
-          height="3"
-          rx="0.5"
-          transform={`rotate(${angle} 12 12)`}
-        />
-      ))}
-      {/* Gear body */}
-      <circle cx="12" cy="12" r="7.8" />
-      {/* Inner cutout */}
-      <circle cx="12" cy="12" r="5.5" fill="white" />
-      {/* R letter */}
-      <text
-        x="12"
-        y="16"
-        fontSize="9"
-        fontWeight="900"
-        textAnchor="middle"
-        fontFamily="Georgia, serif"
-        fill="currentColor"
-      >
-        R
-      </text>
-    </svg>
-  ),
-},
-  {
     name: "TypeScript",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6 md:w-7 md:h-7">
@@ -140,23 +105,6 @@ const skills = [
         <rect x="12" y="6.5" width="4" height="3" rx="0.5" />
         <path d="M2 14.5c1 1.5 3 2 5 1.5h11c2 0 4-1 4-3 0 0-1-1-3-1h-1c0-2-1.5-3-3-3" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M18 8.5c0-1-0.5-2-1.5-2.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    name: "Kubernetes",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6 md:w-7 md:h-7">
-        <circle cx="12" cy="12" r="9" />
-        <circle cx="12" cy="12" r="2" />
-        <line x1="12" y1="3" x2="12" y2="10" strokeLinecap="round" />
-        <line x1="12" y1="14" x2="12" y2="21" strokeLinecap="round" />
-        <line x1="3" y1="12" x2="10" y2="12" strokeLinecap="round" />
-        <line x1="14" y1="12" x2="21" y2="12" strokeLinecap="round" />
-        <line x1="5.6" y1="5.6" x2="10" y2="10" strokeLinecap="round" />
-        <line x1="14" y1="14" x2="18.4" y2="18.4" strokeLinecap="round" />
-        <line x1="18.4" y1="5.6" x2="14" y2="10" strokeLinecap="round" />
-        <line x1="10" y1="14" x2="5.6" y2="18.4" strokeLinecap="round" />
       </svg>
     ),
   },

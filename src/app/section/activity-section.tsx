@@ -3,7 +3,7 @@
 // ── Work Experience Data ───────────────────────────────────────────────────
 const EXPERIENCES = [
   {
-    role: "Full-stack Software Engineer",
+    role: "Full-stack Software Engineer Apprenticeship",
     company: "100xDevs",
     location: "Delhi NCR, India (Remote)",
     period: "Nov 2025 – Present",
