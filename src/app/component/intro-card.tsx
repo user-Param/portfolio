@@ -140,7 +140,7 @@ export default function IntroCard() {
               </a>
 
               <a
-                href="/assets/resume.pdf"
+                href="/assets/Paramjeet Singh.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="View Resume"
