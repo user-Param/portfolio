@@ -14,9 +14,7 @@ export const Navbar = () => {
         
         {/* Links - Hidden on Mobile */}
         <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-500">
-          <span className="cursor-pointer hover:text-black transition-colors">Portfolio</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Projects</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Contact</span>
+         
         </div>
 
         {/* Action Buttons */}
