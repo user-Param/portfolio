@@ -1,11 +1,18 @@
 import Image from "next/image";
 
-export default function IntroCard() {
+interface IntroCardProps {
+  muted: boolean;
+  onToggleSound: () => void;
+}
+
+export default function IntroCard({ muted,
+  onToggleSound,
+}: IntroCardProps) {
   return (
-    <div className="flex items-center justify-center w-full px-4 sm:px-0">
-      <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-100">
+    <span className="flex items-center justify-center w-[50%] px-4 sm:px-0 rounded-xl relative z-10 my-45 mx-10">
+      <div className="flex flex-col md:flex-row w-full bg-white/80 rounded-3xl shadow-sm overflow-hidden border border-gray-100">
         {/* Left: Avatar */}
-        <div className="flex items-center justify-center w-full md:w-[40%] bg-white p-8 md:p-12">
+        <div className="flex items-center justify-center w-full md:w-[40%] p-8 md:p-12">
           <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-md bg-gray-50 border border-gray-100">
             <img
               src="/assets/me.png"
@@ -18,26 +25,26 @@ export default function IntroCard() {
         {/* Right: Info */}
         <div className="flex flex-col flex-1 border-t md:border-t-0 md:border-l border-gray-100">
           {/* PORTFOLIO label */}
-          <div className="px-6 md:px-8 py-4 border-b border-gray-100">
-            <span className="text-[10px] md:text-xs tracking-[0.25em] text-gray-400 font-semibold uppercase">
+          <div className="px-6 md:px-8 py-2.5 border-b border-gray-100">
+            <span className="text-[10px] md:text-xs tracking-[0.25em] text-gray-700 font-semibold uppercase">
               Portfolio
             </span>
           </div>
 
           {/* Name */}
-          <div className="px-6 md:px-8 py-5 md:py-6 border-b border-gray-100 flex items-center flex-wrap gap-3">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight">
+          <div className="px-6 md:px-8 py-4 md:py-5 border-b border-gray-100 flex items-center flex-wrap gap-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">
               Paramjeet Singh
             </h1>
             <div className="flex items-center gap-2">
               {/* Verified Badge */}
-              <span className="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-black text-white flex-shrink-0">
+              <span className="flex items-center justify-center w-3 h-3 md:w-4 md:h-4 rounded-full bg-black text-white flex-shrink-0">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="w-3 h-3 md:w-4 md:h-4"
+                  className="w-2 h-2 md:w-3 md:h-3"
                   stroke="white"
-                  strokeWidth={3}
+                  strokeWidth={2}
                 >
                   <path
                     d="M5 13l4 4L19 7"
@@ -67,11 +74,11 @@ export default function IntroCard() {
           </div>
 
           {/* Role + Description */}
-          <div className="px-6 md:px-8 py-5 md:py-6 border-b border-gray-100 flex-1">
-            <p className="text-base md:text-lg font-bold text-black mb-2">
+          <div className="px-6 md:px-8 py-5 md:py-4 border-b border-gray-100 flex-1">
+            <p className="text-[12px] md:text-[14px] font-bold text-black mb-2">
               Full-stack developer
             </p>
-            <p className="text-sm md:text-base text-gray-500 leading-relaxed max-w-md">
+            <p className="text-[8px] md:text-[12px] text-gray-500 leading-relaxed max-w-md">
               Developing scalable software solutions with a focus on performance, user experience, and reliability
             </p>
           </div>
@@ -163,6 +170,6 @@ export default function IntroCard() {
           </div>
         </div>
       </div>
-    </div>
+    </span>
   );
 }

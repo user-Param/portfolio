@@ -1,0 +1,1598 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  assets/
+    logo+01.webp
+    me.png
+    Miles.webp
+    Paramjeet Singh.pdf
+    section2-bg.png
+    section3-bg.jpg
+    section3-miles.gif
+    spiderverse.mp4
+    spiderverse2.mp4
+src/
+  app/
+    animation/
+      background.tsx
+    component/
+      intro-card.tsx
+    section/
+      about.tsx
+      activity-section.tsx
+      awards.tsx
+      footer.tsx
+      hero.tsx
+      navbar.tsx
+      project.tsx
+      writing.tsx
+    globals.css
+    layout.tsx
+    page.tsx
+    README.md
+.gitignore
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/app/animation/background.tsx">
+
+</file>
+
+<file path="src/app/README.md">
+# portfolio
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  reactCompiler: true,
+};
+
+export default nextConfig;
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path="src/app/section/writing.tsx">
+const POSTS = [
+  {
+    id: 1,
+    tag: "Next.js",
+    date: "Feb 12, 2026",
+    readTime: "8 min read",
+    title: "Mastering Server Components in Next.js 14",
+    excerpt:
+      "A deep dive into the React Server Components architecture and how t...",
+    href: "#",
+    image: null, // replace with "/images/blog/nextjs.png"
+  },
+  {
+    id: 2,
+    tag: "Design System",
+    date: "Jan 28, 2026",
+    readTime: "12 min read",
+    title: "Building Accessible Design Systems",
+    excerpt:
+      "Key principles for creating inclusive UI component libraries that work for...",
+    href: "#",
+    image: null, // replace with "/images/blog/design-system.png"
+  },
+  {
+    id: 3,
+    tag: "Rust",
+    date: "Jan 15, 2026",
+    readTime: "15 min read",
+    title: "Rust for JavaScript Developers",
+    excerpt:
+      "Comparing memory management models and getting started with Rus...",
+    href: "#",
+    image: null, // replace with "/images/blog/rust.png"
+  },
+];
+
+function CalendarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-3.5 h-3.5">
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <line x1="16" y1="2" x2="16" y2="6" strokeLinecap="round" />
+      <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round" />
+      <line x1="3" y1="10" x2="21" y2="10" />
+    </svg>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-3.5 h-3.5">
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="12 7 12 12 15 15" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3.5 h-3.5">
+      <line x1="5" y1="12" x2="19" y2="12" strokeLinecap="round" />
+      <polyline points="12 5 19 12 12 19" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export default function RecentWritingsSection() {
+  return (
+    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16">
+
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
+        <div>
+          <div className="flex items-center gap-3 mb-2">
+            <span className="w-8 h-px bg-black inline-block" />
+            <p className="text-xs tracking-widest text-gray-400 font-medium uppercase">
+              03. / Writing
+            </p>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-black">Recent Writings</h2>
+          <p className="text-sm md:text-base text-gray-400 mt-1.5">
+            Thoughts on software engineering, design patterns, and emerging technologies.
+          </p>
+        </div>
+        <a
+        
+          href="#"
+          className="inline-flex items-center self-start md:self-auto gap-2 text-sm text-gray-500 border border-gray-200 rounded-full px-4 py-2 hover:border-gray-400 hover:text-black transition-all"
+        >
+          View all posts
+          <ArrowIcon />
+        </a>
+      </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {POSTS.map((post) => (
+          <div
+            key={post.id}
+            className="flex flex-col border border-gray-200 rounded-2xl overflow-hidden bg-white hover:border-gray-300 hover:shadow-sm transition-all duration-200"
+          >
+            {/* Tag */}
+            <div className="px-4 pt-4 pb-2">
+              <span className="text-xs font-medium text-gray-500">{post.tag}</span>
+            </div>
+
+            {/* Thumbnail */}
+            <div className="mx-4 mb-3 rounded-xl overflow-hidden bg-gray-100 h-36 w-auto">
+              {post.image ? (
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-gray-100" />
+              )}
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col flex-1 px-4 pb-4">
+              {/* Date + Read time */}
+              <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
+                <span className="flex items-center gap-1">
+                  <CalendarIcon />
+                  {post.date}
+                </span>
+                <span className="flex items-center gap-1">
+                  <ClockIcon />
+                  {post.readTime}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-sm font-bold text-black leading-snug mb-1.5">
+                {post.title}
+              </h3>
+
+              {/* Excerpt */}
+              <p className="text-xs text-gray-400 leading-relaxed flex-1 line-clamp-2 mb-4">
+                {post.excerpt}
+              </p>
+
+              {/* Read Article */}
+              <a 
+                href={post.href}
+                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-black transition-colors"
+              >
+                Read Article
+                <ArrowIcon />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/app/layout.tsx">
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Param",
+  description: "Portfolio",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# portfolio
+</file>
+
+<file path="src/app/section/awards.tsx">
+const CERTS = [
+  {
+    id: 1,
+    abbr: "FundedNext",
+    verified: true,
+    title: "FundedNext Funded Trader",
+    issuer: "FundedNext",
+    issued: "Issued Apr 2025",
+    verify: "#",
+  }
+];
+
+function ExternalLinkIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      className="w-3.5 h-3.5"
+    >
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" strokeLinecap="round" strokeLinejoin="round" />
+      <polyline points="15 3 21 3 21 9" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="10" y1="14" x2="21" y2="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export default function CertificationsSection() {
+  return (
+    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16">
+
+      {/* Header */}
+      <div className="mb-10">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="w-8 h-px bg-black inline-block" />
+          <p className="text-xs tracking-widest text-gray-400 font-medium uppercase">
+            04. / Accolades
+          </p>
+        </div>
+        <h2 className="text-2xl md:text-3xl font-black text-black">Certifications &amp; Awards</h2>
+        <p className="text-sm md:text-base text-gray-400 mt-2">
+          Validating expertise through industry-recognized certifications.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {CERTS.map((cert) => (
+          <div
+            key={cert.id}
+            className="flex flex-col border border-gray-200 rounded-2xl p-6 bg-white hover:border-gray-300 hover:shadow-sm transition-all duration-200"
+          >
+            {/* Top row: abbr badge + VERIFIED */}
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-xs font-semibold text-gray-500 px-2.5 py-1 rounded-md tracking-wide">
+                {cert.abbr}
+              </span>
+              {cert.verified && (
+                <span className="text-xs font-semibold tracking-widest text-gray-400 uppercase">
+                  Verified
+                </span>
+              )}
+            </div>
+
+            {/* Title */}
+            <h3 className="text-sm font-bold text-black leading-snug mb-2">
+              {cert.title}
+            </h3>
+
+            {/* Issuer + Date */}
+            <p className="text-sm text-gray-400 mb-1">{cert.issuer}</p>
+            <p className="text-xs font-mono text-gray-400 mb-6">{cert.issued}</p>
+
+            {/* Divider + Verify link */}
+            <div className="border-t border-gray-100 pt-4 mt-auto">
+              <a
+                href={cert.verify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-black transition-colors"
+              >
+                Verify
+                <ExternalLinkIcon />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/app/section/hero.tsx">
+import IntroCard from "../component/intro-card";
+
+export const Hero = () => {
+  return (
+    <div className="relative max-h-screen w-[50%] rounded-2xl flex overflow-hidden ">
+      <div className="relative z-10">
+        <IntroCard />
+      </div>
+    </div>
+  );
+};
+</file>
+
+<file path="package.json">
+{
+  "name": "param",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-icons": "^5.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.5.0",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="src/app/section/footer.tsx">
+"use client";
+
+import { useState } from "react";
+
+// ── Icons ──────────────────────────────────────────────────────────────────
+function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+function MailIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="M2 7l10 7 10-7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PhoneIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12.13 19.79 19.79 0 0 1 1.45 3.5 2 2 0 0 1 3.42 1.35h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SendIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <line x1="22" y1="2" x2="11" y2="13" />
+      <polygon points="22 2 15 22 11 13 2 9 22 2" />
+    </svg>
+  );
+}
+
+function CheckCircleIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" strokeLinecap="round" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
+  );
+}
+
+// ── Social Links Data ──────────────────────────────────────────────────────
+const SOCIALS = [
+  {
+    label: "LinkedIn",
+    handle: "paramjeet-singh-b566b036b",
+    href: "https://www.linkedin.com/in/paramjeet-singh-b566b036b",
+    Icon: LinkedInIcon,
+    description: "Connect with me professionally",
+  },
+  {
+    label: "GitHub",
+    handle: "paramjeetsinghpawar",
+    href: "https://github.com/user-param",
+    Icon: GithubIcon,
+    description: "Check out my open-source work",
+  },
+  {
+    label: "Email",
+    handle: "paramjeetsinghpawar25@gmail.com",
+    href: "mailto:paramjeetsinghpawar25@gmail.com",
+    Icon: MailIcon,
+    description: "Drop me a direct email",
+  },
+  {
+    label: "Phone",
+    handle: "+91 7734050945",
+    href: "tel:+917734050945",
+    Icon: PhoneIcon,
+    description: "Call or WhatsApp me",
+  },
+];
+
+// ── Main Component ─────────────────────────────────────────────────────────
+export default function ContactAndFooter() {
+  const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleSend = () => {
+    if (!message.trim()) return;
+    setSending(true);
+    // Simulate send — wire up your backend/email service here
+    setTimeout(() => {
+      setSending(false);
+      setSent(true);
+      setMessage("");
+      setName("");
+    }, 1200);
+  };
+
+  return (
+    <div className="w-full max-w-6xl mx-auto px-6 md:px-12">
+
+      {/* ── Contact Section ── */}
+      <section className="py-16 space-y-10">
+
+        {/* Header */}
+        <div>
+          <p className="text-xs tracking-widest text-gray-400 font-medium uppercase mb-1">
+            Get in touch
+          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-black">Contact Me</h2>
+          <p className="text-sm md:text-base text-gray-400 mt-0.5 max-w-md">
+            Open to opportunities, collaborations, or just a quick chat about trading systems and distributed architecture.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {/* ── Left: Socials ── */}
+          <div className="space-y-3">
+            {SOCIALS.map(({ label, handle, href, Icon, description }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 border border-gray-200 rounded-2xl px-5 py-4 bg-white hover:border-gray-400 hover:shadow-sm transition-all duration-200 group"
+              >
+                <div className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:text-black group-hover:border-gray-400 transition-all shrink-0">
+                  <Icon />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-semibold text-black">{label}</p>
+                  </div>
+                  <p className="text-xs text-gray-400 truncate">{handle}</p>
+                </div>
+                <span className="ml-auto text-xs text-gray-300 group-hover:text-gray-500 transition-colors shrink-0">
+                  →
+                </span>
+              </a>
+            ))}
+          </div>
+
+          </div>
+          
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="border-t border-gray-100 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="text-center md:text-left">
+          <p className="text-sm text-gray-500">
+  
+          </p>
+          <p className="text-xs text-gray-400 mt-1">
+            © 2026 Paramjeet Singh. All rights reserved.
+          </p>
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex items-center gap-2">
+          {[
+            { href: "https://github.com/user-param", Icon: GithubIcon },
+            { href: "https://www.linkedin.com/in/paramjeet-singh-b566b036b", Icon: LinkedInIcon },
+            { href: "mailto:paramjeetsinghpawar25@gmail.com", Icon: MailIcon },
+          ].map(({ href, Icon }, i) => (
+            <a
+              key={i}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:border-gray-400 hover:text-black transition-all"
+            >
+              <Icon />
+            </a>
+          ))}
+        </div>
+      </footer>
+
+      {/* ── System Status ── */}
+      <div className="flex justify-center py-6">
+        <div className="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2">
+          <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
+          <span className="text-xs font-mono tracking-widest text-gray-400 uppercase">
+            System Operational
+          </span>
+        </div>
+      </div>
+
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/section/about.tsx">
+import React from "react";
+
+
+
+export default function AboutSection() {
+  return (
+    <section className="flex justify-center">
+      <img className="w-full h-full"
+      src={"assets/section2-bg.png"}/>
+      <div className="border text-white absolute flex justify-center text-center align-center items-center mt-5">
+        <h1 className="px-50">Go Beyond the Screen with the creators of “Spider-Man: Across the Spider-Verse” to see how they used new tools to build the film's visually stunning (and ever-changing) worlds. From mimicking brush strokes and creating characters' distinct looks, to making and learning from mistakes, they worked collaboratively to bring the hit movie to life. Watch now, then apply what they learned to your next project.</h1>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/app/section/activity-section.tsx">
+"use client";
+
+// ── Work Experience Data ───────────────────────────────────────────────────
+const EXPERIENCES = [
+  {
+    role: "Full-stack Software Engineer Apprenticeship",
+    company: "100xDevs",
+    location: "Delhi NCR, India (Remote)",
+    period: "Nov 2025 – Present",
+    type: "fulltime",
+    bullets: [
+      "Led end-to-end design and development of a high-performance algorithmic trading platform built on a low-latency C++ core with a modern React-based terminal.",
+      "Engineered a distributed, microservices-style architecture with WebSocket-based real-time data streaming, a multi-threaded datafeed system, and a high-speed execution engine with integrated risk management.",
+      "Implemented hybrid execution modes for live trading and historical backtesting, along with an embedded browser-based IDE for strategy development, real-time visualization, and seamless strategy deployment.",
+      "Architected a simulated crypto CFD trading engine (BTC, ETH, SOL) as an event-driven microservice system wired through Redis Streams and QuestDB snapshots, so trades replay deterministically and positions survive restarts.",
+      "Built a real-time portfolio tracker using TypeScript with Redis caching, precomputed PnL metrics, and load-balanced WebSocket pipelines for low-latency updates.",
+    ],
+    tags: ["C++", "React", "WebSockets", "Redis", "QuestDB", "TypeScript"],
+  },
+  {
+    role: "Full-stack Software Engineer Intern",
+    company: "Peples Brands Lab",
+    location: "Delhi NCR, India (Remote)",
+    period: "Jun 2025 – Nov 2025",
+    type: "internship",
+    bullets: [
+      "Drove an ecommerce SaaS from idea to MVP in ~3 months by designing a scalable backend + frontend architecture, implementing feed/cart/order/payment flows.",
+      "Built a reusable Next.js + Tailwind component library that replaced spreadsheet workflows and cut new dashboard view build time from days to hours.",
+      "Partnered with founders from zero to launch to ship the first production website, implementing a modular component system (hero, feature rows, FAQ, CTA) and wiring in analytics and env-based config.",
+      "Enabled the team to roll out, A/B test, and rollback new pages safely within days instead of weeks.",
+    ],
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "SaaS", "A/B Testing"],
+  },
+];
+
+const PROJECTS = [
+  {
+    name: "Jinx – High Frequency Trading Platform",
+    bullets: [
+      "Built an ultra low-latency, event-driven HFT system in C++, leveraging Boost.Asio and Boost.Beast for efficient asynchronous socket I/O, enabling fine-grained data flow control and high-throughput stream processing.",
+      "Implemented a replicated in-memory order book for fault tolerance and consistent state management, enabling seamless failover, and used a lock-free event queue to process market events with minimal contention.",
+      "Consumed market events from a lock-free queue and applied trading strategies, with a modular design allowing future integration with hardware acceleration (e.g., FPGA) and routing.",
+      "Only risk-validated orders using pre-trade checks (position sizing, margin, leverage limits, stop-loss, trading session) and microstructure models (order book imbalance, microprice) to avoid adverse trades in fast markets.",
+    ],
+    tags: ["C++", "Boost.Asio", "Boost.Beast", "HFT", "Order Book"],
+  },
+  {
+    name: "Blink – Backtesting Engine",
+    bullets: [
+      "Built a low-latency, event-driven quantitative research and backtesting platform in C++, enabling users to develop strategies, run simulations on historical datasets, and execute in live markets with real capital.",
+      "Utilized Postgres for high-performance time-series market data, providing ultra-low latency ingestion, high throughput, and efficient analytical queries.",
+      "Leveraged Boost.Asio and Boost.Beast for fine-grained control over the networking layer, enabling efficient asynchronous I/O, high-throughput data streams, and low-latency system performance.",
+      "Built a React + TypeScript frontend providing an interactive environment for strategy development, visualization, and real-time monitoring.",
+    ],
+    tags: ["C++", "PostgreSQL", "React", "TypeScript", "Quant Research"],
+  },
+  {
+    name: "Merchant Dashboard",
+    bullets: [
+      "Built a scalable, real-time merchant analytics platform processing ~10K events per minute, designed with a modular monolith architecture that cleanly separates ingestion, processing, and serving layers.",
+      "Backend is stateless NestJS, deployed behind an Nginx load balancer for horizontal scaling across multiple instances.",
+      "Kafka decouples high-volume event ingestion from processing, ensuring resilience to traffic spikes and preventing backpressure on the API.",
+      "A dedicated precompute worker consumes events asynchronously, maintains aggregated metrics, and stores them for O(1) dashboard read queries—delivering sub-500ms analytics responses at scale.",
+    ],
+    tags: ["NestJS", "Kafka", "PostgreSQL", "Redis", "Nginx"],
+  },
+];
+
+const TRADING_SKILLS = {
+  exchanges: ["CoinDCX", "Zerodha", "Groww", "Upstox", "Binance", "Bybit", "Delta Exchange", "Exness"],
+  proprietary: ["FundedNext", "Blueberry Funded", "Klein Funded", "Blue Guardian Funded"],
+  tools: ["TradingView", "MetaTrader 5", "Jupyter Notebook", "QuantConnect", "MetaTrader 4"],
+  indicators: ["EMA", "RSI", "Bollinger Bands", "MACD", "SuperTrend", "Footprints", "Orderbook", "Fibonacci", "Smart Money Concept", "Breakouts", "Volume", "Trading Sessions"],
+};
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function BriefcaseIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+      <line x1="12" y1="12" x2="12" y2="12" />
+      <path d="M2 12h20" />
+    </svg>
+  );
+}
+
+function CodeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  );
+}
+
+function TrendingIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className}>
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+      <polyline points="17 6 23 6 23 12" />
+    </svg>
+  );
+}
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className={className}>
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+// ── Main Component ─────────────────────────────────────────────────────────
+export default function WorkExperienceSection() {
+  return (
+    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16 space-y-14">
+
+      {/* ── Header ── */}
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
+        <div>
+          <p className="text-xs tracking-widest text-gray-400 font-medium uppercase mb-1">
+            Career
+          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-black">Work Experience</h2>
+          <p className="text-sm md:text-base text-gray-400 mt-0.5">
+            Building systems at the intersection of performance and scale.
+          </p>
+        </div>
+        <div className="flex gap-8 md:text-right">
+          <div>
+            <p className="text-2xl md:text-3xl font-black text-black">~1 yr</p>
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Experience</p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Work Experience Cards ── */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-2 mb-2">
+          <BriefcaseIcon className="w-4 h-4 text-gray-400" />
+          <p className="text-sm font-semibold text-black">Positions</p>
+        </div>
+
+        {EXPERIENCES.map((exp, i) => (
+          <div key={i} className="border border-gray-200 rounded-2xl p-6 bg-white space-y-4">
+            {/* Header Row */}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+              <div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="text-base font-black text-black">{exp.role}</h3>
+                  {exp.type === "internship" && (
+                    <span className="text-xs  text-gray-500 px-2 py-0.5 rounded-md font-mono">
+                      Internship
+                    </span>
+                  )}
+                  {exp.type === "fulltime" && (
+                    <span className="text-xs text-white px-2 py-0.5 rounded-md font-mono">
+                      Full-time
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-gray-500 mt-0.5">
+                  {exp.company} · {exp.location}
+                </p>
+              </div>
+              <span className="text-xs font-mono text-gray-400 whitespace-nowrap shrink-0 mt-1">
+                {exp.period}
+              </span>
+            </div>
+
+            {/* Bullets */}
+            <ul className="space-y-2">
+              {exp.bullets.map((b, j) => (
+                <li key={j} className="flex gap-2.5 text-xs text-gray-600 leading-relaxed">
+                  <CheckIcon className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {exp.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs bg-gray-50 border border-gray-200 text-gray-500 px-2 py-0.5 rounded-md font-mono"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Trading & Finance ── */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 mb-2">
+          <TrendingIcon className="w-4 h-4 text-gray-400" />
+          <p className="text-sm font-semibold text-black">Trading & Finance</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Exchanges & Brokers */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Exchanges & Brokers</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.exchanges.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Proprietary Trading */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Proprietary Trading</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.proprietary.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 mt-1">
+              Funded accounts across global prop firms
+            </p>
+          </div>
+
+          {/* Research Tools */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Research Tools</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.tools.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Indicators */}
+          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
+            <p className="text-xs tracking-widest text-gray-400 uppercase">Indicators & Concepts</p>
+            <div className="flex flex-wrap gap-1.5">
+              {TRADING_SKILLS.indicators.map((e) => (
+                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
+                  {e}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  );
+}
+</file>
+
+<file path="src/app/globals.css">
+@import "tailwindcss";
+
+@layer base {
+  .dark body {
+    background-color: #141310 !important;
+    color: #F5F4F0 !important;
+  }
+  
+  .dark div,  
+  .dark nav, 
+  .dark footer,
+  .dark main {
+    background-color: #141310 !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .dark section {
+  background-color: transparent !important;
+}
+
+  .dark h1, .dark h2, .dark h3, .dark p, .dark span, .dark text {
+    color: #F5F4F0 !important;
+  }
+  
+  .dark svg {
+    stroke: #F5F4F0;
+  }
+  
+  .dark .bg-white {
+    background-color: #141310 !important;
+  }
+  
+  .dark .bg-gray-50, .dark .bg-black {
+    background-color: rgb(0, 0, 0) !important;
+  }
+
+  .dark .text-gray-400, .dark .text-gray-500, .dark .text-gray-600, .dark .text-gray-700 {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .dark .border-gray-100, .dark .border-gray-200 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+</file>
+
+<file path="src/app/page.tsx">
+import { Hero } from "./section/hero";
+import { Navbar } from "./section/navbar";
+import AboutSection from "./section/about";
+import WorkExperienceSection from "./section/activity-section";
+import SelectedProjectsSection from "./section/project";
+import ContactAndFooter from "./section/footer";
+import CertificationsSection from "./section/awards";
+import OpensourceAndFooter from "./section/footer";
+
+
+export default function Home() {
+  return (
+    <>
+    <div className="w-full max-w-full border-x-0 md:border-x border-black/5 mx-auto min-h-screen flex flex-col bg-white">
+      
+      <Navbar/>
+      
+      <main className="flex-grow">
+        <section className="relative py-4 md:py-4 lg:py-4 border-b border-black/5 overflow-hidden">
+  
+  {/* Background video */}
+  <video
+    src="/assets/spiderverse2.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-screen object-cover z-0 blur-[3px]"
+  />
+
+  {/* Hero above video */}
+  <div className="relative z-10 h-full my-45 mx-5">
+    <Hero />
+  </div>
+
+</section>
+
+        <section className="">
+          <AboutSection/>
+        </section>
+
+        <section className="">
+          <SelectedProjectsSection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <WorkExperienceSection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+          <CertificationsSection/>
+        </section>
+
+        <section className="py-12 md:py-20 lg:py-24">
+          <ContactAndFooter/>
+        </section>
+      </main>
+    </div>
+    </>
+  );
+}
+</file>
+
+<file path="src/app/component/intro-card.tsx">
+import Image from "next/image";
+
+export default function IntroCard() {
+  return (
+    <div className="flex items-center justify-center w-full px-4 sm:px-0 rounded-xl">
+      <div className="flex flex-col md:flex-row w-full bg-white/80 rounded-3xl shadow-sm overflow-hidden border border-gray-100">
+        {/* Left: Avatar */}
+        <div className="flex items-center justify-center w-full md:w-[40%] p-8 md:p-12">
+          <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-md bg-gray-50 border border-gray-100">
+            <img
+              src="/assets/me.png"
+              alt="Avatar"
+              className="w-full h-full object-cover scale-105 hover:scale-110 transition duration-300"
+            />
+          </div>
+        </div>
+
+        {/* Right: Info */}
+        <div className="flex flex-col flex-1 border-t md:border-t-0 md:border-l border-gray-100">
+          {/* PORTFOLIO label */}
+          <div className="px-6 md:px-8 py-2.5 border-b border-gray-100">
+            <span className="text-[10px] md:text-xs tracking-[0.25em] text-gray-700 font-semibold uppercase">
+              Portfolio
+            </span>
+          </div>
+
+          {/* Name */}
+          <div className="px-6 md:px-8 py-4 md:py-5 border-b border-gray-100 flex items-center flex-wrap gap-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">
+              Paramjeet Singh
+            </h1>
+            <div className="flex items-center gap-2">
+              {/* Verified Badge */}
+              <span className="flex items-center justify-center w-3 h-3 md:w-4 md:h-4 rounded-full bg-black text-white flex-shrink-0">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="w-2 h-2 md:w-3 md:h-3"
+                  stroke="white"
+                  strokeWidth={2}
+                >
+                  <path
+                    d="M5 13l4 4L19 7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              {/* Speaker Icon */}
+              <button className="text-gray-300 hover:text-gray-500 transition-colors">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  className="w-5 h-5 md:w-6 md:h-6"
+                >
+                  <path
+                    d="M11 5L6 9H3v6h3l5 4V5z"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path d="M15.5 8.5a5 5 0 0 1 0 7" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Role + Description */}
+          <div className="px-6 md:px-8 py-5 md:py-4 border-b border-gray-100 flex-1">
+            <p className="text-[12px] md:text-[14px] font-bold text-black mb-2">
+              Full-stack developer
+            </p>
+            <p className="text-[8px] md:text-[12px] text-gray-500 leading-relaxed max-w-md">
+              Developing scalable software solutions with a focus on performance, user experience, and reliability
+            </p>
+          </div>
+
+          {/* Actions */}
+          <div className="px-6 md:px-8 py-5 md:py-6 flex flex-wrap items-center gap-3">
+            {/* Contact Me Button */}
+            <a
+              href="mailto:paramjeetsinghpawar25@gmail.com?subject=Lets%20work%20Together&body=Hi%20Param,"
+              className="flex items-center gap-2 bg-black text-white text-xs md:text-sm font-semibold px-5 py-2.5 md:py-3 rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth={2}
+                className="w-3.5 h-3.5 md:w-4 md:h-4"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M2 7l10 7 10-7" strokeLinecap="round" />
+              </svg>
+              Contact Me
+            </a>
+
+            <div className="flex items-center gap-2 md:gap-3">
+              {/* GitHub */}
+              <a
+                href="https://github.com/user-Param"
+                className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 text-gray-500 hover:border-black hover:bg-gray-50 transition-all"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  className="w-4.5 h-4.5 md:w-5 md:h-5"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/paramjeet-singh-b566b036b"
+                className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 text-gray-500 hover:border-black hover:bg-gray-50 transition-all"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  className="w-4.5 h-4.5 md:w-5 md:h-5"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+
+              <a
+                href="/assets/Paramjeet Singh.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View Resume"
+                className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 text-gray-500 hover:border-black hover:bg-gray-50 transition-all"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  className="w-4.5 h-4.5 md:w-5 md:h-5"
+                >
+                  <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+                  <path d="M14 2v6h6" />
+                  <line x1="8" y1="13" x2="16" y2="13" />
+                  <line x1="8" y1="17" x2="16" y2="17" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/section/navbar.tsx">
+"use client";
+
+export const Navbar = () => {
+  return (
+    <nav className="h-[70px] px-4 md:px-8 flex items-center justify-between border-b border-black/5 bg-white/70 sticky top-0 z-50">
+      
+      {/* Left: Logo / Name */}
+      <div className="text-xl font-bold tracking-tight">
+        Param
+      </div>
+
+      {/* Right: Nav + Actions */}
+      <div className="flex items-center gap-4 md:gap-8">
+        
+        {/* Links - Hidden on Mobile */}
+        <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-500">
+         
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2 md:gap-3">
+          {/* Search - Hidden on Small Mobile */}
+          <div className="hidden sm:block">
+            <input
+              type="search"
+              placeholder="Search..."
+              className="w-32 md:w-48 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200 text-sm outline-none focus:border-black transition-all"
+            />
+          </div>
+
+          <button 
+            onClick={() => document.documentElement.classList.toggle('dark')}
+            className="px-4 py-2 text-xs md:text-sm font-semibold text-black rounded-full bg-black border border-gray-200 transition-colors dark:bg-black dark:text-white dark:border-white/20"
+          >
+            Theme
+          </button>
+
+          <a href="mailto:paramjeetsinghpawar25@gmail.com?subject=Lets%20work%20Together&body=Hi%20Param,"
+          className="px-4 py-2 text-xs md:text-sm font-semibold text-white rounded-full bg-black hover:bg-gray-800 transition-colors">
+            Hire me
+          </a>
+        </div>
+
+      </div>
+    </nav>
+  );
+};
+</file>
+
+<file path="src/app/section/project.tsx">
+"use client";
+
+import { useState } from "react";
+
+const PROJECTS = [
+  {
+    id: 1,
+    category: "Fullstack",
+    featured: true,
+    title: "OpenLobster - RAG coding Agent",
+    description:
+      "OpenLobster is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE and browser.",
+    tags: ["C++", "Next", "CMake"],
+    source: "https://github.com/user-Param/Market-Making-Bot",
+  },
+  {
+    id: 2,
+    category: "Fullstack",
+    featured: true,
+    title: "Exchange - Perpetual Futures Exchange",
+    description:
+    "A production-grade perpetual futures exchange with a high-performance C++ matching engine, TypeScript API, and real-time data pipelines.",
+    tags: ["TypeScript", "C++", "Postgres", "Next.js", "Redis", "Kafka"],
+    source: "https://github.com/user-Param/Perpetual-Futures-Exchange",
+  },
+  {
+    id: 3,
+    category: "Fullstack",
+    featured: true,
+    title: "Blink - Backtesting Engine",
+    description:
+      "Blink is a high-performance backtesting engine designed to simulate and evaluate trading strategies with speed and accuracy, enabling efficient analysis and optimization before deployment",
+    tags: ["C++", "React", "Typescript", "Python"],
+    source: "https://github.com/user-Param/Blink",
+  },
+  {
+    id: 4,
+    category: "Fullstack",
+    featured: false,
+    title: "Merchant - Sales Dashboard",
+    description:
+      "Merchant is a scalable analytics platform that processes high-volume data using Kafka, PostgreSQL, and Redis to deliver fast, real-time insights.",
+    tags: ["Next.js", "Nest.js", "Redis", "Postgres"],
+    source: "https://github.com/user-Param/Merchant-",
+  },
+  {
+    id: 5,
+    category: "Fullstack",
+    featured: false,
+    title: "IssueX - Community Driven Inconvenience Resolving Platform",
+    description:
+      "IssueX is a collaborative platform for sharing problems and building better solutions together through community-driven contributions.",
+    tags: ["React", "Typescript", "Postgres"],
+    source: "https://github.com/user-Param/IssueX",
+  },
+];
+
+const FILTERS = ["All", "Backend", "Fullstack"];
+
+function SourceIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      className="w-4 h-4"
+    >
+      <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default function SelectedProjectsSection() {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filtered =
+    activeFilter === "All"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === activeFilter);
+
+  return (
+    <section className="w-full relative flex justify-center items-center overflow-hidden">
+      <img src="assets/section3-bg.jpg" className="absolute inset-0 h-full w-full object-cover" />
+<img
+  src="/assets/section3-miles.gif"
+  alt=""
+  className="absolute z-9 inset-0 w-[40%] h-[45%] object-cover ml-25"
+/>
+      {/* Header */}
+      <div className="z-10 mx-50 my-50">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 z-10">
+        <div>
+          <p className="text-xs tracking-[0.2em] text-gray-400 font-bold uppercase mb-3">
+            02 / Work
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-black text-black">Selected Projects</h2>
+        </div>
+
+        {/* Filter Tabs */}
+        <div className="flex items-center gap-1 border border-gray-100 rounded-full p-1 bg-gray-50/50 z-10">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActiveFilter(f)}
+              className={`px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
+                activeFilter === f
+                  ? "bg-white text-gray shadow-sm ring-1 ring-black/5"
+                  : "text-gray-400 hover:text-gray-600"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Project Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 z-10 overflow-y-autoss">
+        {filtered.map((project) => (
+          <div
+            key={project.id}
+            className="flex flex-col border border-gray-100 p-4 bg-white hover:border-black/10 hover:shadow-lg transition-all duration-300 group"
+          >
+            <div className="h-32 border">video</div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-[10px] tracking-widest text-gray-400 uppercase font-bold">
+                {project.category}
+              </span>
+              {project.featured && (
+                <span className="text-[9px] font-black bg-black text-white px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                  Featured
+                </span>
+              )}
+            </div>
+            {/* <div className="border border-black/10 rounded-xl h-[150px] w-full">
+              demo video
+            </div> */}
+
+            {/* Title */}
+            <h3 className="text-lg font-bold text-black mb-3 leading-tight group-hover:text-black transition-colors">
+              {project.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-1 line-clamp-3 md:line-clamp-4">
+              {project.description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[10px] md:text-xs text-gray-500 bg-gray-50 border border-gray-100 rounded-lg px-2.5 py-1 font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="border-t border-gray-100 pt-5">
+              <a
+                href={project.source}
+                className="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-black transition-colors group/link"
+              >
+                <SourceIcon />
+                <span>View Source</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+      </div>
+      
+    </section>
+  );
+}
+</file>
+
+</files>

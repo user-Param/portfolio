@@ -7,31 +7,31 @@ const PROJECTS = [
     id: 1,
     category: "Fullstack",
     featured: true,
-    title: "Blink - Backtesting Engine",
+    title: "OpenLobster - RAG coding Agent",
     description:
-      "Blink is a high-performance backtesting engine designed to simulate and evaluate trading strategies with speed and accuracy, enabling efficient analysis and optimization before deployment",
-    tags: ["C++", "React", "Typescript", "Python"],
-    source: "https://github.com/user-Param/Blink",
+      "OpenLobster is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE and browser.",
+    tags: ["C++", "Next", "CMake"],
+    source: "https://github.com/user-Param/Market-Making-Bot",
   },
   {
     id: 2,
     category: "Fullstack",
     featured: true,
-    title: "Jinx - High Frequency Trading Platform",
+    title: "Exchange - Perpetual Futures Exchange",
     description:
-      "Jinx is a high-frequency trading (HFT) bot designed for ultra-fast execution, processing market data and executing trades with minimal latency to capture micro-level opportunities in fast-moving markets.",
-    tags: ["C++", "Next.js"],
-    source: "https://github.com/user-Param/Jinx",
+    "A production-grade perpetual futures exchange with a high-performance C++ matching engine, TypeScript API, and real-time data pipelines.",
+    tags: ["TypeScript", "C++", "Postgres", "Next.js", "Redis", "Kafka"],
+    source: "https://github.com/user-Param/Perpetual-Futures-Exchange",
   },
   {
     id: 3,
-    category: "Backend",
+    category: "Fullstack",
     featured: true,
-    title: "Ava - Market Making Bot",
+    title: "Blink - Backtesting Engine",
     description:
-      "Ava is an arbitrage trading bot designed to identify price inefficiencies across multiple markets and execute trades efficiently, enabling consistent capture of cross-platform opportunities.",
-    tags: ["C++", "Next", "CMake"],
-    source: "https://github.com/user-Param/Market-Making-Bot",
+      "Blink is a high-performance backtesting engine designed to simulate and evaluate trading strategies with speed and accuracy, enabling efficient analysis and optimization before deployment",
+    tags: ["C++", "React", "Typescript", "Python"],
+    source: "https://github.com/user-Param/Blink",
   },
   {
     id: 4,
@@ -77,6 +77,7 @@ function SourceIcon() {
 
 export default function SelectedProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const filtered =
     activeFilter === "All"
@@ -84,69 +85,74 @@ export default function SelectedProjectsSection() {
       : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16">
+    <section className="w-full relative flex justify-center items-center overflow-hidden py-2">
+  <img
+    src="/assets/section3-bg.jpg"
+    className="absolute inset-0 h-full w-full object-cover"
+    alt=""
+  />
 
-      {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
-        <div>
-          <p className="text-xs tracking-[0.2em] text-gray-400 font-bold uppercase mb-3">
-            02 / Work
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-black text-black">Selected Projects</h2>
-        </div>
+  <img
+    src="/assets/section3-miles.gif"
+    alt=""
+    className="absolute z-10 inset-0 w-[43%] h-[50%] object-cover ml-25"
+  />
 
-        {/* Filter Tabs */}
-        <div className="flex items-center gap-1 border border-gray-100 rounded-full p-1 bg-gray-50/50">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
-                activeFilter === f
-                  ? "bg-white text-gray shadow-sm ring-1 ring-black/5"
-                  : "text-gray-400 hover:text-gray-600"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
-      </div>
+  {/* Content */}
+  <span className="relative z-20 mx-50 my-50 w-full py-2">
 
-      {/* Project Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((project) => (
-          <div
-            key={project.id}
-            className="flex flex-col border border-gray-100 rounded-3xl p-6 bg-white hover:border-black/10 hover:shadow-lg transition-all duration-300 group"
+    {/* Filter Tabs */}
+    <span className="flex items-center justify-end gap-1 mb-12">
+      <div className="flex items-center gap-1 border border-gray-100 rounded-full p-1 bg-gray-50/50">
+        {FILTERS.map((f) => (
+          <button
+            key={f}
+            onClick={() => setActiveFilter(f)}
+            className={`px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
+              activeFilter === f
+                ? "bg-white text-gray shadow-sm ring-1 ring-black/5"
+                : "text-gray-400 hover:text-gray-600"
+            }`}
           >
-            {/* Category + Featured badges */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-[10px] tracking-widest text-gray-400 uppercase font-bold">
-                {project.category}
-              </span>
-              {project.featured && (
-                <span className="text-[9px] font-black bg-black text-white px-2 py-0.5 rounded-sm uppercase tracking-wider">
-                  Featured
-                </span>
-              )}
-            </div>
-            {/* <div className="border border-black/10 rounded-xl h-[150px] w-full">
-              demo video
-            </div> */}
+            {f}
+          </button>
+        ))}
+      </div>
+    </span>
 
-            {/* Title */}
-            <h3 className="text-lg font-bold text-black mb-3 leading-tight group-hover:text-black transition-colors">
-              {project.title}
-            </h3>
+    {/* Project Cards */}
+    <span className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      {filtered.map((project) => (
+        <div
+  key={project.id}
+  onMouseEnter={() => setExpandedCard(project.id)}
+  onMouseLeave={() => setExpandedCard(null)}
+  className={`flex flex-col border-[10px] border-white p-4 bg-white overflow-hidden transition-all duration-500 rounded-sm ${
+    expandedCard === project.id
+      ? "scale-[1.03] shadow-xl z-20"
+      : "scale-100"
+  }`}
+>
+          {/* Video */}
+          <div className="h-32 border mb-4">
+            video
+          </div>
+
+          {/* Project name */}
+          <h3 className="text-lg font-bold text-black mb-3 leading-tight">
+            {project.title}
+          </h3>
+
+          {/* Hover content */}
+          <div className="max-h-0 opacity-0 overflow-hidden translate-y-3 transition-all duration-500 group-hover:max-h-60 group-hover:opacity-100 group-hover:translate-y-0">
 
             {/* Description */}
-            <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-1 line-clamp-3 md:line-clamp-4">
+            <p className="text-sm text-gray-500 leading-relaxed mb-4">
               {project.description}
             </p>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-6">
+            {/* Tech stack */}
+            <div className="flex flex-wrap gap-2 mb-4">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
@@ -157,19 +163,25 @@ export default function SelectedProjectsSection() {
               ))}
             </div>
 
-            {/* Divider */}
-            <div className="border-t border-gray-100 pt-5">
+            {/* Source */}
+            <div className="border-t border-gray-100 pt-4">
               <a
                 href={project.source}
-                className="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-black transition-colors group/link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-black"
               >
                 <SourceIcon />
                 <span>View Source</span>
               </a>
             </div>
+
           </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      ))}
+    </span>
+
+  </span>
+</section>
   );
 }
