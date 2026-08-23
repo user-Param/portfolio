@@ -41,8 +41,8 @@ export const Hero = () => {
 <OptionWheel
   items={['About', 'Projects', 'Tools', 'Experience', 'Certifications', 'wow']}
   defaultSelected={2}
-  textColor="#a6a6a6"
-  activeColor="#ffffff"
+  textColor="#ffd900"
+  activeColor="#fc0000"
   side="left"
   fontSize={4}
   spacing={1.4}

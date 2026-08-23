@@ -1,37 +1,7 @@
 "use client";
-
+import Experiences from "../component/experience-card";
 // ── Work Experience Data ───────────────────────────────────────────────────
-const EXPERIENCES = [
-  {
-    role: "Full-stack Software Engineer Apprenticeship",
-    company: "100xDevs",
-    location: "Delhi NCR, India (Remote)",
-    period: "Nov 2025 – Present",
-    type: "fulltime",
-    bullets: [
-      "Led end-to-end design and development of a high-performance algorithmic trading platform built on a low-latency C++ core with a modern React-based terminal.",
-      "Engineered a distributed, microservices-style architecture with WebSocket-based real-time data streaming, a multi-threaded datafeed system, and a high-speed execution engine with integrated risk management.",
-      "Implemented hybrid execution modes for live trading and historical backtesting, along with an embedded browser-based IDE for strategy development, real-time visualization, and seamless strategy deployment.",
-      "Architected a simulated crypto CFD trading engine (BTC, ETH, SOL) as an event-driven microservice system wired through Redis Streams and QuestDB snapshots, so trades replay deterministically and positions survive restarts.",
-      "Built a real-time portfolio tracker using TypeScript with Redis caching, precomputed PnL metrics, and load-balanced WebSocket pipelines for low-latency updates.",
-    ],
-    tags: ["C++", "React", "WebSockets", "Redis", "QuestDB", "TypeScript"],
-  },
-  {
-    role: "Full-stack Software Engineer Intern",
-    company: "Peples Brands Lab",
-    location: "Delhi NCR, India (Remote)",
-    period: "Jun 2025 – Nov 2025",
-    type: "internship",
-    bullets: [
-      "Drove an ecommerce SaaS from idea to MVP in ~3 months by designing a scalable backend + frontend architecture, implementing feed/cart/order/payment flows.",
-      "Built a reusable Next.js + Tailwind component library that replaced spreadsheet workflows and cut new dashboard view build time from days to hours.",
-      "Partnered with founders from zero to launch to ship the first production website, implementing a modular component system (hero, feature rows, FAQ, CTA) and wiring in analytics and env-based config.",
-      "Enabled the team to roll out, A/B test, and rollback new pages safely within days instead of weeks.",
-    ],
-    tags: ["Next.js", "Tailwind CSS", "TypeScript", "SaaS", "A/B Testing"],
-  },
-];
+
 
 const PROJECTS = [
   {
@@ -114,146 +84,27 @@ function CheckIcon({ className }: { className?: string }) {
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function WorkExperienceSection() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16 space-y-14">
+    <section className="relative w-full h-screen overflow-hidden">
 
-      {/* ── Header ── */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-        <div>
-          <p className="text-xs tracking-widest text-gray-400 font-medium uppercase mb-1">
-            Career
-          </p>
-          <h2 className="text-2xl md:text-3xl font-black text-black">Work Experience</h2>
-          <p className="text-sm md:text-base text-gray-400 mt-0.5">
-            Building systems at the intersection of performance and scale.
-          </p>
-        </div>
-        <div className="flex gap-8 md:text-right">
-          <div>
-            <p className="text-2xl md:text-3xl font-black text-black">~1 yr</p>
-            <p className="text-xs tracking-widest text-gray-400 uppercase">Experience</p>
-          </div>
-        </div>
-      </div>
+  {/* Background */}
+  <img
+    src="/assets/pavitra-bg.jpg"
+    className="absolute inset-0 z-0 w-full h-full object-cover"
+    alt=""
+  />
 
-      {/* ── Work Experience Cards ── */}
-      <div className="space-y-6">
-        <div className="flex items-center gap-2 mb-2">
-          <BriefcaseIcon className="w-4 h-4 text-gray-400" />
-          <p className="text-sm font-semibold text-black">Positions</p>
-        </div>
+  {/* Pavitra above background */}
+  <img
+    src="/assets/pavitra.png"
+    className="absolute z-10 h-[35rem] w-[35rem] ml-205"
+    alt=""
+  />
+      
 
-        {EXPERIENCES.map((exp, i) => (
-          <div key={i} className="border border-gray-200 rounded-2xl p-6 bg-white space-y-4">
-            {/* Header Row */}
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-              <div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <h3 className="text-base font-black text-black">{exp.role}</h3>
-                  {exp.type === "internship" && (
-                    <span className="text-xs  text-gray-500 px-2 py-0.5 rounded-md font-mono">
-                      Internship
-                    </span>
-                  )}
-                  {exp.type === "fulltime" && (
-                    <span className="text-xs text-white px-2 py-0.5 rounded-md font-mono">
-                      Full-time
-                    </span>
-                  )}
-                </div>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  {exp.company} · {exp.location}
-                </p>
-              </div>
-              <span className="text-xs font-mono text-gray-400 whitespace-nowrap shrink-0 mt-1">
-                {exp.period}
-              </span>
-            </div>
-
-            {/* Bullets */}
-            <ul className="space-y-2">
-              {exp.bullets.map((b, j) => (
-                <li key={j} className="flex gap-2.5 text-xs text-gray-600 leading-relaxed">
-                  <CheckIcon className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1.5 pt-1">
-              {exp.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-gray-50 border border-gray-200 text-gray-500 px-2 py-0.5 rounded-md font-mono"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* ── Trading & Finance ── */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2 mb-2">
-          <TrendingIcon className="w-4 h-4 text-gray-400" />
-          <p className="text-sm font-semibold text-black">Trading & Finance</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Exchanges & Brokers */}
-          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
-            <p className="text-xs tracking-widest text-gray-400 uppercase">Exchanges & Brokers</p>
-            <div className="flex flex-wrap gap-1.5">
-              {TRADING_SKILLS.exchanges.map((e) => (
-                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
-                  {e}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Proprietary Trading */}
-          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
-            <p className="text-xs tracking-widest text-gray-400 uppercase">Proprietary Trading</p>
-            <div className="flex flex-wrap gap-1.5">
-              {TRADING_SKILLS.proprietary.map((e) => (
-                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
-                  {e}
-                </span>
-              ))}
-            </div>
-            <p className="text-xs text-gray-400 mt-1">
-              Funded accounts across global prop firms
-            </p>
-          </div>
-
-          {/* Research Tools */}
-          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
-            <p className="text-xs tracking-widest text-gray-400 uppercase">Research Tools</p>
-            <div className="flex flex-wrap gap-1.5">
-              {TRADING_SKILLS.tools.map((e) => (
-                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
-                  {e}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Indicators */}
-          <div className="border border-gray-200 rounded-2xl p-5 space-y-3">
-            <p className="text-xs tracking-widest text-gray-400 uppercase">Indicators & Concepts</p>
-            <div className="flex flex-wrap gap-1.5">
-              {TRADING_SKILLS.indicators.map((e) => (
-                <span key={e} className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded-md font-mono">
-                  {e}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <span className="relative ">
+          <Experiences />
+      </span>
+      
 
     </section>
   );

@@ -27,65 +27,49 @@ function ExternalLinkIcon() {
 }
 
 export default function CertificationsSection() {
+  const awards = [
+    {
+      image: "image",
+      name: "funded next",
+      description: "jscjsdcsdcjdsjcsdjcdjscjsdnc",
+    },
+    {
+      image: "image",
+      name: "funded n02",
+      description: "jscjsdcsdcjdsjcsdjcdjscjsdnc",
+    },
+    {
+      image: "image",
+      name: "funded nsdsd",
+      description: "jscjsdcsdcjdsjcsdjcdjscjsdnc",
+    },
+  ];
+
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 md:px-12 py-16">
+    <section className="w-full border h-screen">
+      <div className="relative w-full h-full flex justify-center">
 
-      {/* Header */}
-      <div className="mb-10">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="w-8 h-px bg-black inline-block" />
-          <p className="text-xs tracking-widest text-gray-400 font-medium uppercase">
-            04. / Accolades
-          </p>
-        </div>
-        <h2 className="text-2xl md:text-3xl font-black text-black">Certifications &amp; Awards</h2>
-        <p className="text-sm md:text-base text-gray-400 mt-2">
-          Validating expertise through industry-recognized certifications.
-        </p>
-      </div>
+        {/* Background */}
+        <img
+          src="/assets/certification-bg.jpg"
+          alt=""
+          className="absolute z-0 w-full h-full object-cover"
+        />
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {CERTS.map((cert) => (
-          <div
-            key={cert.id}
-            className="flex flex-col border border-gray-200 rounded-2xl p-6 bg-white hover:border-gray-300 hover:shadow-sm transition-all duration-200"
-          >
-            {/* Top row: abbr badge + VERIFIED */}
-            <div className="flex items-center justify-between mb-6">
-              <span className="text-xs font-semibold text-gray-500 px-2.5 py-1 rounded-md tracking-wide">
-                {cert.abbr}
-              </span>
-              {cert.verified && (
-                <span className="text-xs font-semibold tracking-widest text-gray-400 uppercase">
-                  Verified
-                </span>
-              )}
-            </div>
+        {/* Awards ABOVE image */}
+        <span className="absolute  z-10 flex justify-center gap-6 border mt-104">
+          {awards.map((award) => (
+            <span
+              key={award.name}
+              className="w-90 h-[50vh] p-6 bg-red-500"
+            >
+              <div className="h-[160] border">{award.image}</div>
+              <h2>{award.name}</h2>
+              <p>{award.description}</p>
+            </span>
+          ))}
+        </span>
 
-            {/* Title */}
-            <h3 className="text-sm font-bold text-black leading-snug mb-2">
-              {cert.title}
-            </h3>
-
-            {/* Issuer + Date */}
-            <p className="text-sm text-gray-400 mb-1">{cert.issuer}</p>
-            <p className="text-xs font-mono text-gray-400 mb-6">{cert.issued}</p>
-
-            {/* Divider + Verify link */}
-            <div className="border-t border-gray-100 pt-4 mt-auto">
-              <a
-                href={cert.verify}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-black transition-colors"
-              >
-                Verify
-                <ExternalLinkIcon />
-              </a>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );

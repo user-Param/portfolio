@@ -328,20 +328,20 @@ const OptionWheel = ({
       onKeyDown={handleKeyDown}
     >
       {items.map((label, index) => (
-        <div
+        <span
           key={`${label}-${index}`}
           ref={el => {
             itemRefs.current[index] = el;
           }}
           role="option"
           aria-selected={selectedIndex === index}
-          className={`absolute py-3 px-6 top-1/2 cursor-pointer whitespace-nowrap leading-none will-change-[transform,opacity,filter] [font-size:var(--ow-font-size)] [color:color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
+          className={`bg-blur absolute border py-3 px-6 top-1/2 cursor-pointer whitespace-nowrap leading-none will-change-[transform,opacity,filter] [font-size:var(--ow-font-size)] [color:color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
             side === 'right' ? 'right-[var(--ow-inset)] origin-right' : 'left-[var(--ow-inset)] origin-left'
           } ${selectedIndex === index ? 'font-medium' : 'font-extralight'}`}
           onClick={() => handleItemClick(index)}
         >
-          {label}
-        </div>
+           <h1 className='text-shadow-md stroke-red-600'>{label}</h1>
+        </span>
       ))}
     </span>
   );

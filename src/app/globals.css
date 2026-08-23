@@ -24,6 +24,7 @@
 
   .dark h1, .dark h2, .dark h3, .dark p, .dark span, .dark text {
     color: #F5F4F0 !important;
+    
   }
 
   .dark svg {
@@ -54,6 +55,14 @@
   html {
     @apply font-sans;
   }
+
+  h1,
+  h2,
+  h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
 }
 
 @theme inline {

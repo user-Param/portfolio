@@ -27,7 +27,7 @@ export default function IntroCard({ muted,
           {/* PORTFOLIO label */}
           <div className="px-6 md:px-8 py-2.5 border-b border-gray-100">
             <span className="text-[10px] md:text-xs tracking-[0.25em] text-gray-700 font-semibold uppercase">
-              Portfolio
+               <h1 className="text-sm">Portfolio</h1>
             </span>
           </div>
 
@@ -75,12 +75,12 @@ export default function IntroCard({ muted,
 
           {/* Role + Description */}
           <div className="px-6 md:px-8 py-5 md:py-4 border-b border-gray-100 flex-1">
-            <p className="text-[12px] md:text-[14px] font-bold text-black mb-2">
+            <h1 className="text-[14px] md:text-[16px] font-bold text-black mb-2">
               Full-stack developer
-            </p>
-            <p className="text-[8px] md:text-[12px] text-gray-500 leading-relaxed max-w-md">
+            </h1>
+            <h3 className="text-[8px] md:text-[12px] text-gray-800 leading-relaxed max-w-md">
               Developing scalable software solutions with a focus on performance, user experience, and reliability
-            </p>
+            </h3>
           </div>
 
           {/* Actions */}
@@ -100,7 +100,7 @@ export default function IntroCard({ muted,
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="M2 7l10 7 10-7" strokeLinecap="round" />
               </svg>
-              Contact Me
+               <h1>Contact Me</h1>
             </a>
 
             <div className="flex items-center gap-2 md:gap-3">

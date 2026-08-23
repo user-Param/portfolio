@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-    <div className="w-full max-w-full border-x-0 md:border-x border-black/5 mx-auto min-h-screen flex flex-col bg-white">
+    <div className="w-full max-w-full px-9 border-x-0 md:border-x border-black/5 mx-auto min-h-screen flex flex-col bg-white">
       
       <Navbar/>
       
@@ -56,15 +56,17 @@ export default function Home() {
           <Tools />
         </section>
 
-        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
-          <WorkExperienceSection/>
-        </section>
-
-        <section className="py-12 md:py-20 lg:py-24 border-b border-black/5">
+        <section className=" border-b border-black/5">
           <CertificationsSection/>
         </section>
 
-        <section className="py-12 md:py-20 lg:py-24">
+        <section className="border-b border-black/5">
+          <WorkExperienceSection/>
+        </section>
+
+        
+
+        <section className="py-2 mb-2">
           <ContactAndFooter/>
         </section>
       </main>

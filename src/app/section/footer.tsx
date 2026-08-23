@@ -108,13 +108,14 @@ export default function ContactAndFooter() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 md:px-12">
+    <div className="w-full overflow-hidden relative">
+      <img src="assets/connect-bg.jpg" className="absolute inset-0 z-0 object-cover" />
 
       {/* ── Contact Section ── */}
-      <section className="py-16 space-y-10">
+      <section className="relative z-20 inset-0 w-full pl-5 pt-10">
 
         {/* Header */}
-        <div>
+        <span>
           <p className="text-xs tracking-widest text-gray-400 font-medium uppercase mb-1">
             Get in touch
           </p>
@@ -122,12 +123,12 @@ export default function ContactAndFooter() {
           <p className="text-sm md:text-base text-gray-400 mt-0.5 max-w-md">
             Open to opportunities, collaborations, or just a quick chat about trading systems and distributed architecture.
           </p>
-        </div>
+        </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <span className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           {/* ── Left: Socials ── */}
-          <div className="space-y-3">
+          <span className="space-y-3">
             {SOCIALS.map(({ label, handle, href, Icon, description }) => (
               <a
                 key={label}
@@ -150,9 +151,9 @@ export default function ContactAndFooter() {
                 </span>
               </a>
             ))}
-          </div>
+          </span>
 
-          </div>
+          </span>
           
       </section>
 

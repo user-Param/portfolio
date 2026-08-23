@@ -1,10 +1,12 @@
 "use client";
 
+import path from "path";
 import { useState } from "react";
 
 const PROJECTS = [
   {
     id: 1,
+    path: "assets/claude.jpeg",
     category: "Fullstack",
     featured: true,
     title: "OpenLobster - RAG coding Agent",
@@ -15,6 +17,7 @@ const PROJECTS = [
   },
   {
     id: 2,
+    path: "assets/exchange.jpeg",
     category: "Fullstack",
     featured: true,
     title: "Exchange - Perpetual Futures Exchange",
@@ -25,6 +28,7 @@ const PROJECTS = [
   },
   {
     id: 3,
+    path: "assets/claude.jpeg",
     category: "Fullstack",
     featured: true,
     title: "Blink - Backtesting Engine",
@@ -35,6 +39,7 @@ const PROJECTS = [
   },
   {
     id: 4,
+    path: "assets/claude.jpeg",
     category: "Fullstack",
     featured: false,
     title: "Merchant - Sales Dashboard",
@@ -45,6 +50,29 @@ const PROJECTS = [
   },
   {
     id: 5,
+    path: "assets/claude.jpeg",
+    category: "Fullstack",
+    featured: false,
+    title: "IssueX - Community Driven Inconvenience Resolving Platform",
+    description:
+      "IssueX is a collaborative platform for sharing problems and building better solutions together through community-driven contributions.",
+    tags: ["React", "Typescript", "Postgres"],
+    source: "https://github.com/user-Param/IssueX",
+  },
+  {
+    id: 6,
+    path: "assets/claude.jpeg",
+    category: "Fullstack",
+    featured: false,
+    title: "Merchant - Sales Dashboard",
+    description:
+      "Merchant is a scalable analytics platform that processes high-volume data using Kafka, PostgreSQL, and Redis to deliver fast, real-time insights.",
+    tags: ["Next.js", "Nest.js", "Redis", "Postgres"],
+    source: "https://github.com/user-Param/Merchant-",
+  },
+  {
+    id: 7,
+    path: "assets/claude.jpeg",
     category: "Fullstack",
     featured: false,
     title: "IssueX - Community Driven Inconvenience Resolving Platform",
@@ -95,14 +123,14 @@ export default function SelectedProjectsSection() {
   <img
     src="/assets/section3-miles.gif"
     alt=""
-    className="absolute z-10 inset-0 w-[43%] h-[50%] object-cover ml-25"
+    className="absolute z-10 inset-0 w-[39%] h-[40%] object-cover ml-25 mt-20"
   />
 
   {/* Content */}
-  <span className="relative z-20 mx-50 my-50 w-full py-2">
+  <span className="relative z-20 my-50 w-[90%] py-2">
 
     {/* Filter Tabs */}
-    <span className="flex items-center justify-end gap-1 mb-12">
+    <span className="flex items-center justify-end gap-1 mb-12 mr-30">
       <div className="flex items-center gap-1 border border-gray-100 rounded-full p-1 bg-gray-50/50">
         {FILTERS.map((f) => (
           <button
@@ -121,60 +149,39 @@ export default function SelectedProjectsSection() {
     </span>
 
     {/* Project Cards */}
-    <span className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+    <span className="grid grid-cols-4 gap-2 border w-full px-6">
       {filtered.map((project) => (
         <div
-  key={project.id}
-  onMouseEnter={() => setExpandedCard(project.id)}
-  onMouseLeave={() => setExpandedCard(null)}
-  className={`flex flex-col border-[10px] border-white p-4 bg-white overflow-hidden transition-all duration-500 rounded-sm ${
+          key={project.id}
+          onMouseEnter={() => setExpandedCard(project.id)}
+          onMouseLeave={() => setExpandedCard(null)}
+          className={`flex flex-col w-[20rem] bg-white overflow-hidden transition-all duration-500 ${
+    project.id === 4 ? "col-start-1" : ""
+  } ${
     expandedCard === project.id
       ? "scale-[1.03] shadow-xl z-20"
       : "scale-100"
   }`}
->
+        >
           {/* Video */}
-          <div className="h-32 border mb-4">
-            video
+          <div className="h-42 w-full border mb-4 p-2">
+            <img src={project.path} alt="" />
           </div>
 
           {/* Project name */}
-          <h3 className="text-lg font-bold text-black mb-3 leading-tight">
+          <h3 className="text-lg font-bold text-black mb-3 leading-tight px-3">
             {project.title}
           </h3>
 
           {/* Hover content */}
-          <div className="max-h-0 opacity-0 overflow-hidden translate-y-3 transition-all duration-500 group-hover:max-h-60 group-hover:opacity-100 group-hover:translate-y-0">
+          <div className="max-h-full overflow-hidden translate-y-3 transition-all duration-500 group-hover:max-h-60 group-hover:opacity-100 group-hover:translate-y-0">
 
             {/* Description */}
-            <p className="text-sm text-gray-500 leading-relaxed mb-4">
+            <h3 className="text-sm text-gray-500 leading-relaxed mb-4 px-4">
               {project.description}
-            </p>
+            </h3>
 
-            {/* Tech stack */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] md:text-xs text-gray-500 bg-gray-50 border border-gray-100 rounded-lg px-2.5 py-1 font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Source */}
-            <div className="border-t border-gray-100 pt-4">
-              <a
-                href={project.source}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-black"
-              >
-                <SourceIcon />
-                <span>View Source</span>
-              </a>
-            </div>
+            
 
           </div>
         </div>
