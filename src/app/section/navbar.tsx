@@ -28,12 +28,12 @@ export const Navbar = () => {
             />
           </div>
 
-          <button 
+          {/* <button 
             onClick={() => document.documentElement.classList.toggle('dark')}
             className="px-4 py-2 text-xs md:text-sm font-semibold text-black rounded-full bg-black border border-gray-200 transition-colors dark:bg-black dark:text-white dark:border-white/20"
           >
             Theme
-          </button>
+          </button> */}
 
           <a href="mailto:paramjeetsinghpawar25@gmail.com?subject=Lets%20work%20Together&body=Hi%20Param,"
           className="px-4 py-2 text-xs md:text-sm font-semibold text-white rounded-full bg-black hover:bg-gray-800 transition-colors">

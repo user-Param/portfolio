@@ -1,6 +1,7 @@
 
+"use client";
 
-
+import { useRef } from "react";
 import { Hero } from "./section/hero";
 import { Navbar } from "./section/navbar";
 import AboutSection from "./section/about";
@@ -16,27 +17,27 @@ import Tools from "./section/tools";
 
 
 export default function Home() {
-
- 
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <>
-    <div className="w-full max-w-full px-9 border-x-0 md:border-x border-black/5 mx-auto min-h-screen flex flex-col bg-white">
+    <div className="w-full max-w-full px-2 border-x-0 md:border-x border-black/5 mx-auto min-h-screen flex flex-col bg-white">
       
       <Navbar/>
       
       <main className="flex-grow">
         <section className="relative border-b border-black/5 overflow-hidden">
   
-  {/* Background video
-  <video
+  
+  {/* <video
     ref={videoRef}
-    src="/assets/spiderverse2.mp4"
+    src="./assets/spiderverse2.mp4"
     loop
     muted={false}
     playsInline
     className="absolute inset-0 w-full h-screen object-cover z-0 blur-[3px]"
   /> */}
+  
 
 
     <Hero />

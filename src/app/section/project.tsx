@@ -20,7 +20,7 @@ const PROJECTS = [
     path: "assets/exchange.jpeg",
     category: "Fullstack",
     featured: true,
-    title: "Exchange - Perpetual Futures Exchange",
+    title: "FTX - Perpetual Futures Exchange",
     description:
     "A production-grade perpetual futures exchange with a high-performance C++ matching engine, TypeScript API, and real-time data pipelines.",
     tags: ["TypeScript", "C++", "Postgres", "Next.js", "Redis", "Kafka"],
@@ -42,44 +42,11 @@ const PROJECTS = [
     path: "assets/claude.jpeg",
     category: "Fullstack",
     featured: false,
-    title: "Merchant - Sales Dashboard",
+    title: "WorkPlace - Multi Agent orchestrartion",
     description:
       "Merchant is a scalable analytics platform that processes high-volume data using Kafka, PostgreSQL, and Redis to deliver fast, real-time insights.",
     tags: ["Next.js", "Nest.js", "Redis", "Postgres"],
     source: "https://github.com/user-Param/Merchant-",
-  },
-  {
-    id: 5,
-    path: "assets/claude.jpeg",
-    category: "Fullstack",
-    featured: false,
-    title: "IssueX - Community Driven Inconvenience Resolving Platform",
-    description:
-      "IssueX is a collaborative platform for sharing problems and building better solutions together through community-driven contributions.",
-    tags: ["React", "Typescript", "Postgres"],
-    source: "https://github.com/user-Param/IssueX",
-  },
-  {
-    id: 6,
-    path: "assets/claude.jpeg",
-    category: "Fullstack",
-    featured: false,
-    title: "Merchant - Sales Dashboard",
-    description:
-      "Merchant is a scalable analytics platform that processes high-volume data using Kafka, PostgreSQL, and Redis to deliver fast, real-time insights.",
-    tags: ["Next.js", "Nest.js", "Redis", "Postgres"],
-    source: "https://github.com/user-Param/Merchant-",
-  },
-  {
-    id: 7,
-    path: "assets/claude.jpeg",
-    category: "Fullstack",
-    featured: false,
-    title: "IssueX - Community Driven Inconvenience Resolving Platform",
-    description:
-      "IssueX is a collaborative platform for sharing problems and building better solutions together through community-driven contributions.",
-    tags: ["React", "Typescript", "Postgres"],
-    source: "https://github.com/user-Param/IssueX",
   },
 ];
 
@@ -149,13 +116,13 @@ export default function SelectedProjectsSection() {
     </span>
 
     {/* Project Cards */}
-    <span className="grid grid-cols-4 gap-2 border w-full px-6">
+    <span className="grid grid-cols-3 gap-2 w-full px-6">
       {filtered.map((project) => (
         <div
           key={project.id}
           onMouseEnter={() => setExpandedCard(project.id)}
           onMouseLeave={() => setExpandedCard(null)}
-          className={`flex flex-col w-[20rem] bg-white overflow-hidden transition-all duration-500 ${
+          className={`flex flex-col w-[20rem] bg-white overflow-hidden transition-all duration-500 mx-3${
     project.id === 4 ? "col-start-1" : ""
   } ${
     expandedCard === project.id

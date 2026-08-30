@@ -4,7 +4,7 @@ import React from "react";
 
 export default function AboutSection() {
   return (
-    <section className="flex justify-center py-4">
+    <section className="flex justify-center py-1">
       <img className="w-full h-full"
       src={"assets/section2-bg.png"}/>
       <span className=" text-white absolute flex justify-center text-center align-center items-center mt-15">

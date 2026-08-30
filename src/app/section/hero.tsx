@@ -19,17 +19,24 @@ export const Hero = () => {
     }
   };
   return (
-    <div className="relative max-h-screen w-full flex overflow-hidden py-2">
+    <div className="relative max-h-screen w-full flex overflow-hidden">
 
-      <video
+      {/* <video
         ref={videoRef}
-        src="/assets/spiderverse2.mp4"
+        src="/assets/spiderverse.mp4"
         autoPlay
         loop
         muted
         playsInline
         className="absolute inset-0 w-full h-screen object-cover z-0 blur-[3px]"
-      />
+        style={{ opacity: 1, visibility: 'visible' }}
+        type="video/mp4"
+      /> */}
+
+      <img src="./assets/miles-3.gif" alt="" className="absolute inset-0 w-full h-screen object-cover z-0"
+        style={{ opacity: 1, visibility: 'visible' }}/>
+
+        <div className="absolute h-screen w-full bg-background opacity-50"></div>
 
         <IntroCard
           muted={muted}
@@ -45,14 +52,14 @@ export const Hero = () => {
   activeColor="#fc0000"
   side="left"
   fontSize={4}
-  spacing={1.4}
+  spacing={2}
   curve={1}
-  tilt={6}
+  tilt={40}
   blur={2}
-  fade={0.25}
+  fade={1}
   smoothing={200}
   inset={80}
-  loop={false}
+  loop={true}
   draggable
   soundUrl="/assets/sounds/click-soft.mp3"
   soundVolume={0.5}

@@ -10,33 +10,33 @@ export default function IntroCard({ muted,
 }: IntroCardProps) {
   return (
     <span className="flex items-center justify-center w-[50%] px-4 sm:px-0 rounded-xl relative z-10 my-45 mx-10">
-      <div className="flex flex-col md:flex-row w-full bg-white/80 rounded-3xl shadow-sm overflow-hidden border border-gray-100">
+      <span className="flex flex-col md:flex-row w-full bg-black/80 rounded-3xl shadow-sm overflow-hidden border border-gray-100">
         {/* Left: Avatar */}
-        <div className="flex items-center justify-center w-full md:w-[40%] p-8 md:p-12">
-          <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-md bg-gray-50 border border-gray-100">
+        <span className="flex items-center justify-center w-full md:w-[40%] p-8 md:p-12">
+          <span className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-md bg-gray-50 border border-gray-100">
             <img
               src="/assets/me.png"
               alt="Avatar"
               className="w-full h-full object-cover scale-105 hover:scale-110 transition duration-300"
             />
-          </div>
-        </div>
+          </span>
+        </span>
 
         {/* Right: Info */}
-        <div className="flex flex-col flex-1 border-t md:border-t-0 md:border-l border-gray-100">
+        <span className="flex flex-col flex-1 border-t md:border-t-0 md:border-l border-gray-100">
           {/* PORTFOLIO label */}
-          <div className="px-6 md:px-8 py-2.5 border-b border-gray-100">
+          <span className="px-6 md:px-8 py-2.5 border-b border-gray-100">
             <span className="text-[10px] md:text-xs tracking-[0.25em] text-gray-700 font-semibold uppercase">
                <h1 className="text-sm">Portfolio</h1>
             </span>
-          </div>
+          </span>
 
           {/* Name */}
-          <div className="px-6 md:px-8 py-4 md:py-5 border-b border-gray-100 flex items-center flex-wrap gap-3">
+          <span className="px-6 md:px-8 py-4 md:py-5 border-b border-gray-100 flex items-center flex-wrap gap-3">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">
               Paramjeet Singh
             </h1>
-            <div className="flex items-center gap-2">
+            <span className="flex items-center gap-2">
               {/* Verified Badge */}
               <span className="flex items-center justify-center w-3 h-3 md:w-4 md:h-4 rounded-full bg-black text-white flex-shrink-0">
                 <svg
@@ -70,21 +70,21 @@ export default function IntroCard({ muted,
                   <path d="M15.5 8.5a5 5 0 0 1 0 7" strokeLinecap="round" />
                 </svg>
               </button>
-            </div>
-          </div>
+            </span>
+          </span>
 
           {/* Role + Description */}
-          <div className="px-6 md:px-8 py-5 md:py-4 border-b border-gray-100 flex-1">
+          <span className="px-6 md:px-8 py-5 md:py-4 border-b border-gray-100 flex-1">
             <h1 className="text-[14px] md:text-[16px] font-bold text-black mb-2">
               Full-stack developer
             </h1>
             <h3 className="text-[8px] md:text-[12px] text-gray-800 leading-relaxed max-w-md">
               Developing scalable software solutions with a focus on performance, user experience, and reliability
             </h3>
-          </div>
+          </span>
 
           {/* Actions */}
-          <div className="px-6 md:px-8 py-5 md:py-6 flex flex-wrap items-center gap-3">
+          <span className="px-6 md:px-8 py-5 md:py-6 flex flex-wrap items-center gap-3">
             {/* Contact Me Button */}
             <a
               href="mailto:paramjeetsinghpawar25@gmail.com?subject=Lets%20work%20Together&body=Hi%20Param,"
@@ -103,7 +103,7 @@ export default function IntroCard({ muted,
                <h1>Contact Me</h1>
             </a>
 
-            <div className="flex items-center gap-2 md:gap-3">
+            <span className="flex items-center gap-2 md:gap-3">
               {/* GitHub */}
               <a
                 href="https://github.com/user-Param"
@@ -166,10 +166,10 @@ export default function IntroCard({ muted,
                   <line x1="8" y1="17" x2="16" y2="17" />
                 </svg>
               </a>
-            </div>
-          </div>
-        </div>
-      </div>
+            </span>
+          </span>
+        </span>
+      </span>
     </span>
   );
 }
