@@ -2,7 +2,7 @@
 
 export const Navbar = () => {
   return (
-    <nav className="h-[70px] px-4 md:px-8 flex items-center justify-between border-b border-black/5 bg-white sticky top-0 z-50">
+    <nav className="h-[70px] px-4 md:px-8 flex items-center justify-between border-b border-black/5 sticky top-0 z-50">
       
       {/* Left: Logo / Name */}
       <div className="text-xl font-bold tracking-tight">

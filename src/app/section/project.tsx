@@ -11,7 +11,7 @@ const PROJECTS = [
     featured: true,
     title: "OpenLobster - RAG coding Agent",
     description:
-      "OpenLobster is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE and browser.",
+      "",
     tags: ["C++", "Next", "CMake"],
     source: "https://github.com/user-Param/Market-Making-Bot",
   },
@@ -22,7 +22,7 @@ const PROJECTS = [
     featured: true,
     title: "FTX - Perpetual Futures Exchange",
     description:
-    "A production-grade perpetual futures exchange with a high-performance C++ matching engine, TypeScript API, and real-time data pipelines.",
+    "",
     tags: ["TypeScript", "C++", "Postgres", "Next.js", "Redis", "Kafka"],
     source: "https://github.com/user-Param/Perpetual-Futures-Exchange",
   },
@@ -33,7 +33,7 @@ const PROJECTS = [
     featured: true,
     title: "Blink - Backtesting Engine",
     description:
-      "Blink is a high-performance backtesting engine designed to simulate and evaluate trading strategies with speed and accuracy, enabling efficient analysis and optimization before deployment",
+      "",
     tags: ["C++", "React", "Typescript", "Python"],
     source: "https://github.com/user-Param/Blink",
   },
@@ -44,7 +44,7 @@ const PROJECTS = [
     featured: false,
     title: "WorkPlace - Multi Agent orchestrartion",
     description:
-      "Merchant is a scalable analytics platform that processes high-volume data using Kafka, PostgreSQL, and Redis to deliver fast, real-time insights.",
+      "",
     tags: ["Next.js", "Nest.js", "Redis", "Postgres"],
     source: "https://github.com/user-Param/Merchant-",
   },
@@ -80,50 +80,39 @@ export default function SelectedProjectsSection() {
       : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <section className="w-full relative flex justify-center items-center overflow-hidden py-2">
+    <section className="w-full relative flex justify-center items-center overflow-hidden">
+      <span className="h-full w-full bg-black/50 absolute"></span>
   <img
-    src="/assets/section3-bg.jpg"
-    className="absolute inset-0 h-full w-full object-cover"
+    src="/assets/miles-4.gif"
+    className="absolute inset-0 h-[90%] w-full object-cover"
     alt=""
   />
 
   <img
     src="/assets/section3-miles.gif"
     alt=""
-    className="absolute z-10 inset-0 w-[39%] h-[40%] object-cover ml-25 mt-20"
+    className="absolute z-10 inset-0 w-[40%] h-[45%] object-cover ml-25 mt-10"
   />
 
   {/* Content */}
-  <span className="relative z-20 my-50 w-[90%] py-2">
+  <span className="relative z-20 my-30 w-[90%] py-2">
 
     {/* Filter Tabs */}
-    <span className="flex items-center justify-end gap-1 mb-12 mr-30">
-      <div className="flex items-center gap-1 border border-gray-100 rounded-full p-1 bg-gray-50/50">
-        {FILTERS.map((f) => (
-          <button
-            key={f}
-            onClick={() => setActiveFilter(f)}
-            className={`px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
-              activeFilter === f
-                ? "bg-white text-gray shadow-sm ring-1 ring-black/5"
-                : "text-gray-400 hover:text-gray-600"
-            }`}
-          >
-            {f}
-          </button>
-        ))}
+    <span className="flex items-center justify-end gap-1 mb-12 mr-30 border">
+      <div className="flex items-center gap-1 border border-white rounded-full p-1 bg-gray-50/50 ">
+        
       </div>
     </span>
 
     {/* Project Cards */}
-    <span className="grid grid-cols-3 gap-2 w-full px-6">
+    <span className="grid grid-cols-3 w-[80%]">
       {filtered.map((project) => (
-        <div
+        <span
           key={project.id}
           onMouseEnter={() => setExpandedCard(project.id)}
           onMouseLeave={() => setExpandedCard(null)}
-          className={`flex flex-col w-[20rem] bg-white overflow-hidden transition-all duration-500 mx-3${
-    project.id === 4 ? "col-start-1" : ""
+          className={`flex flex-col w-[18rem] bg-white overflow-hidden transition-all duration-500 rounded-sm border-white${
+    project.id === 3 ? "col-start-1" : ""
   } ${
     expandedCard === project.id
       ? "scale-[1.03] shadow-xl z-20"
@@ -131,27 +120,23 @@ export default function SelectedProjectsSection() {
   }`}
         >
           {/* Video */}
-          <div className="h-42 w-full border mb-4 p-2">
-            <img src={project.path} alt="" />
+          <div className="h-42 w-full border mb-1 border-white">
+            <img src={project.path} />
           </div>
 
           {/* Project name */}
-          <h3 className="text-lg font-bold text-black mb-3 leading-tight px-3">
-            {project.title}
-          </h3>
+          <div className="h-[57px]">
+            <img src="/assets/projectstitle.png"  className="absolute h-[50px] w-full z-0"/>
+            <h1 className="z-10">{project.title}</h1>
+          </div>
 
           {/* Hover content */}
           <div className="max-h-full overflow-hidden translate-y-3 transition-all duration-500 group-hover:max-h-60 group-hover:opacity-100 group-hover:translate-y-0">
 
-            {/* Description */}
-            <h3 className="text-sm text-gray-500 leading-relaxed mb-4 px-4">
-              {project.description}
-            </h3>
-
             
 
           </div>
-        </div>
+        </span>
       ))}
     </span>
 

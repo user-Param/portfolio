@@ -1,4 +1,9 @@
 import { useRef, useState, useCallback, useEffect, type CSSProperties } from 'react';
+import type { StaticImageData } from 'next/image';
+import projectsImg from '../../components/options/PROJECTS.png';
+import experienceImg from '../../components/options/EXPERIENCE.png';
+import aboutImg from '../../components/options/ABOUT.png';
+import toolsImg from '../../components/options/TOOLS.png';
 
 type Side = 'left' | 'right';
 
@@ -80,7 +85,7 @@ const OptionWheel = ({
   className = ''
 }: OptionWheelProps) => {
   const rootRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const itemRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const posRef = useRef(defaultSelected);
   const targetRef = useRef(defaultSelected);
   const rafRef = useRef<number | null>(null);
@@ -306,6 +311,22 @@ const OptionWheel = ({
     []
   );
 
+  const imageMap: Record<string, StaticImageData> = {
+    Projects: projectsImg,
+    Experience: experienceImg,
+    About: aboutImg,
+    Tools: toolsImg,
+
+  };
+
+  const renderItem = (label: string) => {
+    const imgSrc = imageMap[label];
+    if (imgSrc) {
+      return <img src={imgSrc.src} alt={label} className="h-full w-auto" />;
+    }
+    return <h1 className='text-shadow-md stroke-red-600'>{label}</h1>;
+  };
+
   return (
     <span
       ref={rootRef}
@@ -335,12 +356,12 @@ const OptionWheel = ({
           }}
           role="option"
           aria-selected={selectedIndex === index}
-          className={`bg-blur absolute border py-3 px-6 top-1/2 cursor-pointer whitespace-nowrap leading-none will-change-[transform,opacity,filter] [font-size:var(--ow-font-size)] [color:color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
+          className={`h-[100px] w-[300px] bg-blur absolute border top-1/2 cursor-pointer whitespace-nowrap leading-none will-change-[transform,opacity,filter] [font-size:var(--ow-font-size)] [color:color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
             side === 'right' ? 'right-[var(--ow-inset)] origin-right' : 'left-[var(--ow-inset)] origin-left'
           } ${selectedIndex === index ? 'font-medium' : 'font-extralight'}`}
           onClick={() => handleItemClick(index)}
         >
-           <h1 className='text-shadow-md stroke-red-600'>{label}</h1>
+          {renderItem(label)}
         </span>
       ))}
     </span>
