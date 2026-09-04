@@ -7,10 +7,8 @@
 @layer base {
   .dark body {
     background-color: #141310 !important;
-    color: #F5F4F0 !important;
   }
 
-  .dark div,  
   .dark nav, 
   .dark footer,
   .dark main {
@@ -22,10 +20,6 @@
   background-color: transparent !important;
 }
 
-  .dark h1, .dark h2, .dark h3, .dark p, .dark span, .dark text {
-    color: #F5F4F0 !important;
-    
-  }
 
   .dark svg {
     stroke: #F5F4F0;

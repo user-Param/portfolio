@@ -80,29 +80,23 @@ export default function SelectedProjectsSection() {
       : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <section className="w-full relative flex justify-center items-center overflow-hidden">
+    <section className="w-full h-[75vh] relative flex justify-center items-center overflow-hidden">
       <span className="h-full w-full bg-black/50 absolute"></span>
   <img
-    src="/assets/miles-4.gif"
-    className="absolute inset-0 h-[90%] w-full object-cover"
+    src="/assets/section3-bg.jpg"
+    className="absolute inset-0 h-[100%] w-full object-cover"
     alt=""
   />
 
   <img
     src="/assets/section3-miles.gif"
     alt=""
-    className="absolute z-10 inset-0 w-[40%] h-[45%] object-cover ml-25 mt-10"
+    className="absolute z-10 inset-0 w-[40%] h-[50%] object-cover ml-25 mt-10"
   />
 
   {/* Content */}
-  <span className="relative z-20 my-30 w-[90%] py-2">
+  <span className="relative z-20 my-30 w-[90%] py-10">
 
-    {/* Filter Tabs */}
-    <span className="flex items-center justify-end gap-1 mb-12 mr-30 border">
-      <div className="flex items-center gap-1 border border-white rounded-full p-1 bg-gray-50/50 ">
-        
-      </div>
-    </span>
 
     {/* Project Cards */}
     <span className="grid grid-cols-3 w-[80%]">

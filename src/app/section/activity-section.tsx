@@ -84,7 +84,7 @@ function CheckIcon({ className }: { className?: string }) {
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function WorkExperienceSection() {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-[75vh] overflow-hidden">
 
   {/* Background */}
   <img

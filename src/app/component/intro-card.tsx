@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ClickSpark from "@/components/ClickSpark";
 
 interface IntroCardProps {
   muted: boolean;
@@ -10,7 +11,7 @@ export default function IntroCard({ muted,
 }: IntroCardProps) {
   return (
     <span className="flex items-center justify-center w-[50%] px-4 sm:px-0 rounded-xl relative z-10 my-45 mx-10">
-      <span className="flex flex-col md:flex-row w-full bg-black/80 rounded-3xl shadow-sm overflow-hidden border border-gray-100">
+      <span className="flex flex-col md:flex-row w-full bg-black/80 rounded-3xl shadow-sm  border border-gray-100">
         {/* Left: Avatar */}
         <span className="flex items-center justify-center w-full md:w-[40%] p-8 md:p-12">
           <span className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-md bg-gray-50 border border-gray-100">
@@ -33,7 +34,7 @@ export default function IntroCard({ muted,
 
           {/* Name */}
           <span className="px-6 md:px-8 py-4 md:py-5 border-b border-gray-100 flex items-center flex-wrap gap-3">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl tracking-tight">
               Paramjeet Singh
             </h1>
             <span className="flex items-center gap-2">
@@ -75,97 +76,105 @@ export default function IntroCard({ muted,
 
           {/* Role + Description */}
           <span className="px-6 md:px-8 py-5 md:py-4 border-b border-gray-100 flex-1">
-            <h1 className="text-[14px] md:text-[16px] font-bold text-black mb-2">
+            <h1 className="text-[14px] md:text-[16px] font-bold mb-2">
               Full-stack developer
             </h1>
-            <h3 className="text-[8px] md:text-[12px] text-gray-800 leading-relaxed max-w-md">
+            <h3 className="text-[8px] md:text-[12px] leading-relaxed max-w-md">
               Developing scalable software solutions with a focus on performance, user experience, and reliability
             </h3>
           </span>
 
           {/* Actions */}
-          <span className="px-6 md:px-8 py-5 md:py-6 flex flex-wrap items-center gap-3">
+          <span className="flex flex-wrap items-center gap-3 px-6 md:px-8 py-5">
             {/* Contact Me Button */}
-            <a
-              href="mailto:paramjeetsinghpawar25@gmail.com?subject=Lets%20work%20Together&body=Hi%20Param,"
-              className="flex items-center gap-2 bg-black text-white text-xs md:text-sm font-semibold px-5 py-2.5 md:py-3 rounded-full hover:bg-gray-800 transition-colors shadow-sm"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth={2}
-                className="w-3.5 h-3.5 md:w-4 md:h-4"
+            <ClickSpark sparkColor="#ffd900" sparkSize={15} sparkRadius={30} sparkCount={12} duration={500}>
+              <a
+                href="mailto:paramjeetsinghpawar25@gmail.com?subject=Lets%20work%20Together&body=Hi%20Param,"
+                className="flex items-center gap-2 bg-black text-white text-xs md:text-sm font-semibold px-5  rounded-full hover:bg-gray-800 transition-colors shadow-sm"
               >
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="M2 7l10 7 10-7" strokeLinecap="round" />
-              </svg>
-               <h1>Contact Me</h1>
-            </a>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth={2}
+                  className="w-3.5 h-3.5 md:w-4 md:h-4"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M2 7l10 7 10-7" strokeLinecap="round" />
+                </svg>
+                 <h1>Contact Me</h1>
+              </a>
+            </ClickSpark>
 
             <span className="flex items-center gap-2 md:gap-3">
               {/* GitHub */}
-              <a
-                href="https://github.com/user-Param"
-                className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 text-gray-500 hover:border-black hover:bg-gray-50 transition-all"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.8}
-                  className="w-4.5 h-4.5 md:w-5 md:h-5"
+              <ClickSpark sparkColor="#ffd900" sparkSize={12} sparkRadius={25} sparkCount={8} duration={400}>
+                <a
+                  href="https://github.com/user-Param"
+                  className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 hover:border-black hover:bg-gray-50 transition-all"
                 >
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.8}
+                    className="w-4.5 h-4.5 md:w-5 md:h-5"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </ClickSpark>
 
               {/* LinkedIn */}
-              <a
-                href="https://www.linkedin.com/in/paramjeet-singh-b566b036b"
-                className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 text-gray-500 hover:border-black hover:bg-gray-50 transition-all"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.8}
-                  className="w-4.5 h-4.5 md:w-5 md:h-5"
+              <ClickSpark sparkColor="#ffd900" sparkSize={12} sparkRadius={25} sparkCount={8} duration={400}>
+                <a
+                  href="https://www.linkedin.com/in/paramjeet-singh-b566b036b"
+                  className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 hover:border-black hover:bg-gray-50 transition-all"
                 >
-                  <path
-                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </a>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.8}
+                    className="w-4.5 h-4.5 md:w-5 md:h-5"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </ClickSpark>
 
-              <a
-                href="/assets/Paramjeet Singh.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="View Resume"
-                className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200 text-gray-500 hover:border-black hover:bg-gray-50 transition-all"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.8}
-                  className="w-4.5 h-4.5 md:w-5 md:h-5"
+              <ClickSpark sparkColor="#ffd900" sparkSize={12} sparkRadius={25} sparkCount={8} duration={400}>
+                <a
+                  href="/assets/Paramjeet Singh.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="View Resume"
+                  className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border border-gray-200  hover:border-black hover:bg-gray-50 transition-all"
                 >
-                  <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                  <path d="M14 2v6h6" />
-                  <line x1="8" y1="13" x2="16" y2="13" />
-                  <line x1="8" y1="17" x2="16" y2="17" />
-                </svg>
-              </a>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.8}
+                    className="w-4.5 h-4.5 md:w-5 md:h-5"
+                  >
+                    <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+                    <path d="M14 2v6h6" />
+                    <line x1="8" y1="13" x2="16" y2="13" />
+                    <line x1="8" y1="17" x2="16" y2="17" />
+                  </svg>
+                </a>
+              </ClickSpark>
             </span>
           </span>
         </span>

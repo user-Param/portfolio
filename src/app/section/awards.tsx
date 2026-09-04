@@ -46,7 +46,7 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section className="w-full border h-screen">
+    <section className="w-full border h-[75vh]">
       <div className="relative w-full h-full flex justify-center">
 
         {/* Background */}
@@ -56,12 +56,21 @@ export default function CertificationsSection() {
           className="absolute z-0 w-full h-full object-cover"
         />
 
+
+        <div className=" p-6 h-[30vh] w-full z-20 flex justify-center gap-4 mt-10">
+          <p className="text-black">The filmmakers behind “Spider-Man: <br />Across the Spider-Verse” pushed the <br /> limits of what's possible in <br /> animation to bring you the hit film <br /> you love. Watch these clips to learn <br /> exclusive details about your favorite <br /> scenes, and how to harness that <br /> focus and drive for your own <br /> projects.</p>
+          <img src="/assets/watchmore.png" className="h-full relative " />
+        </div>
+        
+
         {/* Awards ABOVE image */}
-        <span className="absolute  z-10 flex justify-center gap-6 border mt-104">
-          {awards.map((award) => (
+        <span className="absolute  mt-90 z-10 flex justify-center gap-8 border">
+          {awards.map((award, index) => (
             <span
               key={award.name}
-              className="w-90 h-[50vh] p-6 bg-red-500"
+              className={`w-70 h-[33vh] ${
+      index === 1 ? "bg-blue-500" : "bg-red-500"
+    }`}
             >
               <div className="h-[160] border">{award.image}</div>
               <h2>{award.name}</h2>

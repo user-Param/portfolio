@@ -46,9 +46,9 @@ export default function Experiences(){
 ];
 
     return(
-        <span className="h-20 w-40 border">
+        <span className="h-10 w-20 border">
             {experiences.map((experience)=> (
-                <div className="h-[25vh] w-[50%] border my-10 ml-15 bg-white">
+                <div className="h-[18vh] w-[20%] border mt-10 my-4 ml-60 bg-white">
                     <span key={experience.role}>{experience.role}</span>
                 </div>
                 
