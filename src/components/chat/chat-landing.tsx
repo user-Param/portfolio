@@ -1,18 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Award, Code, Mail, MessageSquare } from 'lucide-react';
-import Link from 'next/link';
+import { Award, Code, Mail, MessageSquare } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import React from 'react';
 
 interface ChatLandingProps {
   submitQuery: (query: string) => void;
-  hasReachedLimit?: boolean;
 }
 
 const ChatLanding: React.FC<ChatLandingProps> = ({
   submitQuery,
-  hasReachedLimit = false,
 }) => {
   // Suggested questions that the user can click on
   const suggestedQuestions = [
@@ -64,7 +62,21 @@ const ChatLanding: React.FC<ChatLandingProps> = ({
       animate="visible"
       variants={containerVariants}
     >
-     
+      <div className="flex flex-wrap gap-2 justify-center">
+        {suggestedQuestions.map(({ icon, text }, index) => (
+          <motion.button
+            key={index}
+            variants={itemVariants}
+            onClick={() => submitQuery(text)}
+            className="flex items-center gap-2 rounded-xl border border-neutral-200 bg-white/80 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-neutral-100 transition-colors backdrop-blur-sm"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {icon}
+            <span>{text}</span>
+          </motion.button>
+        ))}
+      </div>
     </motion.div>
   );
 };

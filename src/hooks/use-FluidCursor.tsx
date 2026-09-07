@@ -1250,13 +1250,16 @@ const useFluidCursor = () => {
     return delta;
   }
 
-  function generateColor() {
-    let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-    c.r *= 0.15;
-    c.g *= 0.15;
-    c.b *= 0.15;
-    return c;
-  }
+ function generateColor() {
+  const colors = [
+    { r: 0.55, g: 0.05, b: 0.95 }, // purple
+    { r: 1.0, g: 0.05, b: 0.45 },  // magenta
+    { r: 0.05, g: 0.25, b: 1.0 },  // electric blue
+    { r: 0.9, g: 0.02, b: 0.08 },  // crimson
+  ];
+
+  return colors[Math.floor(Math.random() * colors.length)];
+}
 
   function HSVtoRGB(h, s, v) {
     let r, g, b, i, f, p, q, t;

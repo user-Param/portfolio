@@ -13,16 +13,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Toukoum Portfolio',
+  title: 'Param',
   description:
-    'Interactive portfolio with an AI-powered Memoji that answers questions about me, my skills, and my experience',
+  'Ai powered portfolio',
   keywords: [
-    'Toukoum',
+    'Param',
     'Portfolio',
     'Developer',
     'AI',
     'Interactive',
-    'Memoji',
     'Web Development',
     'Full Stack',
     'Next.js',
@@ -30,26 +29,19 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: 'Toukoum',
-      url: 'https://toukoum.fr',
+      name: 'Param',
     },
   ],
-  creator: 'Toukoum',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://toukoum.fr',
-    title: 'Toukoum Portfolio',
+    title: 'Param Portfolio',
     description:
-      'Interactive portfolio with an AI-powered Memoji that answers questions about me',
-    siteName: 'Toukoum Portfolio',
+      'Ai powered portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Toukoum Portfolio',
-    description:
-      'Interactive portfolio with an AI-powered Memoji that answers questions about me',
-    creator: '@toukoum',
+    title: 'Param',
   },
   icons: {
     icon: [
@@ -76,13 +68,7 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <link rel="icon" href="/favicon.svg" sizes="any" />
-        <Script
-          defer
-          data-website-id="68e067ba369b1b7f1f096056"
-          data-domain="toukoum.fr"
-          data-allow-localhost="true"
-          src="https://datafa.st/js/script.js"
-        ></Script>
+        
       </head>
       <body
         className={cn(
