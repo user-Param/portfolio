@@ -27,7 +27,7 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
   const defaultTrigger = (
     <Button
       variant="ghost"
-      className="h-auto w-auto cursor-pointer rounded-2xl bg-white/30 p-3 shadow-lg backdrop-blur-lg hover:bg-white/60 focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+      className="h-auto w-auto cursor-pointer  bg-white/30 p-3 shadow-lg backdrop-blur-lg hover:bg-white/60 focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
       onClick={() => setIsOpen(true)}
     >
       <Image
@@ -58,7 +58,7 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
       )}
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="bg-background z-52 max-h-[85vh] overflow-auto rounded-2xl border-none p-4 py-6 shadow-xl sm:max-w-[85vw] md:max-w-[80vw] lg:max-w-[1000px]">
+        <DialogContent className="bg-background z-52 max-h-[85vh] overflow-auto  border-none p-4 py-6 shadow-xl sm:max-w-[85vw] md:max-w-[80vw] lg:max-w-[1000px]">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="sticky top-0 right-0 cursor-pointer rounded-full bg-black p-2 text-white hover:bg-black/90 hover:text-white"
+                className="sticky top-0 right-0 cursor-pointer  bg-black p-2 text-white hover:bg-black/90 hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 <X className="h-6 w-6" />
@@ -88,7 +88,7 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
 
             {/* Content area */}
             <div className="space-y-6 overflow-y-auto px-2 py-4 md:px-8">
-              <section className="bg-accent w-full space-y-8 rounded-2xl p-8">
+              <section className="bg-accent w-full space-y-8  p-8">
                 {/* What section */}
                 <div className="space-y-3">
                   <h3 className="text-primary flex items-center gap-2 text-xl font-semibold">
@@ -124,7 +124,7 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
             <div className="flex flex-col items-center px-8 pt-4 pb-0 md:pb-8">
               <Button
                 onClick={() => setIsOpen(false)}
-                className="h-auto rounded-full px-4 py-3"
+                className="h-auto  px-4 py-3"
                 size="sm"
               >
                 Start Chatting

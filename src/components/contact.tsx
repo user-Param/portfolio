@@ -7,33 +7,21 @@ import { ChevronRight } from 'lucide-react';
 export function Contact() {
   // Contact information
   const contactInfo = {
-    name: 'Raphael Giraud',
-    email: 'raphaelgiraud12@gmail.com',
-    handle: '@Raphael.Giraud',
+    name: 'Paramjeet Singh',
+    email: 'paramjeetsinghpawar25@gmail.com',
+    handle: '',
     socials: [
       {
         name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/raphael-giraud-60939519a/',
-      },
-      {
-        name: 'Youtube',
-        url: 'https://www.youtube.com/@toukoum',
-      },
-      {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/raphael.giraud/',
-      },
-      {
-        name: 'Discord',
-        url: 'https://discord.com/users/toukoum',
+        url: 'https://www.linkedin.com/in/paramjeet-singh-b566b036b/',
       },
       {
         name: 'Github',
-        url: 'https://github.com/toukoum',
+        url: 'https://github.com/user-Param',
       },
       {
         name: 'X',
-        url: 'https://x.com/toukoumcode',
+        url: 'https://x.com/Param1542412',
       },
     ],
   };
@@ -45,7 +33,7 @@ export function Contact() {
 
   return (
     <div className="mx-auto mt-8 w-full">
-      <div className="bg-accent w-full overflow-hidden rounded-3xl px-6 py-8 font-sans sm:px-10 md:px-16 md:py-12">
+      <div className="bg-accent w-full overflow-hidden  px-6 py-8 font-sans sm:px-10 md:px-16 md:py-12">
         {/* Header Section */}
         <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-foreground text-3xl font-semibold md:text-4xl">

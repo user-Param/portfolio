@@ -7,27 +7,24 @@ import { url } from 'inspector';
 // Enhanced project content array with all projects
 const PROJECT_CONTENT = [
   {
-    title: 'Synto',
+    title: 'OpenLobster',
     description:
-      'Synto is an AI-powered interface that transforms complex blockchain interactions into simple, natural language commands. Whether you want to send tokens, stake assets, swap coins, or even create NFTs or liquidity pools, just tell Synto what to do — no manual wallet interactions, no technical jargon. One of my biggest projects yet',
+      'OpenLobster is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE and browser.',
     techStack: [
       'Next.js',
       'TailwindCSS',
-      'Web3.js',
       'shadcn-ui',
       'TypeScript',
-      'Phantom Wallet',
-      'OpenAI API',
       'Vercel AI SDK',
-      'Solana Agent kit',
-      'Neon',
-      'Prisma'
+      'Drizzle',
+      'Postgres',
+      'CromaDB',
     ],
-    date: '2025',
+    date: '2026',
     links: [
       {
         name: 'website',
-        url: 'https://synto.fun',
+        url: 'https://openlobster.fun',
       },
       {
         name: 'Launch Video',
@@ -78,11 +75,19 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'Rrate',
+    title: 'Exchange',
     description:
-      "Rrate is a fun website to allow user to compare his salary with the richest people in the world. Try it now it's online!",
-    techStack: ['Html', 'Css', 'Javascript'],
-    date: '2024',
+      "A production-grade perpetual futures exchange with a high-performance C++ matching engine, TypeScript API, and real-time data pipelines.",
+    techStack: ['Next.js',
+      'TailwindCSS',
+      'C++',
+      'TypeScript',
+      'Boost',
+      'Drizzle',
+      'Postgres',
+      'Redis',
+      'Kafka',],
+    date: '2026',
     links: [
       {
         name: 'website',
@@ -109,17 +114,17 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'Defai',
+    title: 'Protype',
     description:
-      "We Win ETHOXford hackathon by building DEFAI. DEFAI stands for Decentralized Finance Artificial Intelligence. It's an AI-powered chat interface that simplifies on-chain operations on the Avalanche blockchain by allowing users to interact using natural language. This makes complex DeFi operations accessible even for those with limited technical expertise.",
+      "Protype is a decentralized algorithmic trading platform for building, backtesting, and deploying trading strategies across blockchain and crypto markets.",
     techStack: [
       'Next.js',
+      'Rust',
       'TailwindCSS',
-      'shadcn-ui',
-      'Vercel AI SDK',
+      'Node Js',
       'TypeScript',
     ],
-    date: '2025',
+    date: '2026',
     links: [
       {
         name: 'website',
@@ -158,11 +163,11 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'Fitgear',
+    title: 'Blink',
     description:
-      'Won the Gotta Go Hack IA by building Fitgear, a virtual voice seller accessible by QR code to improve the ratio between customers and sellers. Created an AI pipeline with API calls and a RAG system for natural language interactions.',
-    techStack: ['Next.js', 'TailwindCSS', 'OpenAI API', 'Langchain'],
-    date: '2024',
+      'Blink is a high-performance, developer-first backtesting platform for algorithmic traders. It enables users to build, test, and optimize trading strategies on historical data with speed and precision. With a modular architecture and seamless transition to live trading, Blink helps turn ideas into reliable, production-ready trading systems.',
+    techStack: ['Next.js', 'TailwindCSS'],
+    date: '2026',
     links: [
       {
         name: 'Linkedin',
@@ -357,7 +362,7 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
   return (
     <div className="space-y-10">
       {/* Header section with description */}
-      <div className="rounded-3xl bg-[#F5F5F7] p-8 dark:bg-[#1D1D1F]">
+      <div className=" bg-[#F5F5F7] p-8 dark:bg-[#1D1D1F]">
         <div className="space-y-6">
           <div className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
             <span>{projectData.date}</span>
@@ -376,7 +381,7 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
               {projectData.techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className="rounded-full bg-neutral-200 px-3 py-1 text-sm text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200"
+                  className=" bg-neutral-200 px-3 py-1 text-sm text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200"
                 >
                   {tech}
                 </span>
@@ -403,7 +408,7 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-[#F5F5F7] flex items-center justify-between rounded-xl p-4 transition-colors hover:bg-[#E5E5E7] dark:bg-neutral-800 dark:hover:bg-neutral-700"
+                className="group bg-[#F5F5F7] flex items-center justify-between  p-4 transition-colors hover:bg-[#E5E5E7] dark:bg-neutral-800 dark:hover:bg-neutral-700"
                 >
                 <span className="font-light capitalize">{link.name}</span>
                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -420,7 +425,7 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
             {projectData.images.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-video overflow-hidden rounded-2xl"
+                className="relative aspect-video overflow-hidden "
               >
                 <Image
                   src={image.src}

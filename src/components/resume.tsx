@@ -31,7 +31,7 @@ export function Resume() {
     <div className="mx-auto w-full py-8 font-sans">
       <motion.div
         onClick={handleDownload}
-        className="group relative cursor-pointer overflow-hidden rounded-xl bg-accent p-0 transition-all duration-300"
+        className="group relative cursor-pointer overflow-hidden  bg-accent p-0 transition-all duration-300"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.0, ease: 'easeOut' }}
@@ -58,7 +58,7 @@ export function Resume() {
 
             {/* Download indicator */}
             <motion.div
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-primary-foreground group-hover:bg-black/80"
+              className="flex h-10 w-10 items-center justify-center  bg-black text-primary-foreground group-hover:bg-black/80"
               initial={{ scale: 1 }}
             >
               <Download className="h-5 w-5" />

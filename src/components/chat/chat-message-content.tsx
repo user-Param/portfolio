@@ -37,13 +37,13 @@ const CodeBlock = ({ content }: { content: string }) => {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="my-4 w-full overflow-hidden rounded-md"
+      className="my-4 w-full overflow-hidden "
     >
-      <div className="bg-secondary text-secondary-foreground flex items-center justify-between rounded-t-md border-b px-4 py-1">
+      <div className="bg-secondary text-secondary-foreground flex items-center justify-between  border-b px-4 py-1">
         <span className="text-xs">
           {language !== 'text' ? language : 'Code'}
         </span>
-        <CollapsibleTrigger className="hover:bg-secondary/80 rounded p-1">
+        <CollapsibleTrigger className="hover:bg-secondary/80  p-1">
           {isOpen ? (
             <ChevronUp className="h-4 w-4" />
           ) : (
@@ -52,7 +52,7 @@ const CodeBlock = ({ content }: { content: string }) => {
         </CollapsibleTrigger>
       </div>
 
-      <div className="bg-accent/80 text-accent-foreground rounded-b-md">
+      <div className="bg-accent/80 text-accent-foreground ">
         {!isOpen && hasMoreLines ? (
           <pre className="px-4 py-3">
             <code className="text-sm">{previewLines + '\n...'}</code>
