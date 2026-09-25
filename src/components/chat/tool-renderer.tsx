@@ -28,7 +28,7 @@ export default function ToolRenderer({
             return (
               <div
                 key={toolCallId}
-                className="w-full overflow-hidden rounded-lg"
+                className="w-full overflow-hidden "
               >
                 <AllProjects />
               </div>
@@ -38,7 +38,7 @@ export default function ToolRenderer({
             return (
               <div
                 key={toolCallId}
-                className="w-full overflow-hidden rounded-lg"
+                className="w-full overflow-hidden "
               >
                 <Presentation />
               </div>
@@ -46,42 +46,42 @@ export default function ToolRenderer({
 
           case 'getResume':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full ">
                 <Resume />
               </div>
             );
 
           case 'getContact':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full ">
                 <Contact />
               </div>
             );
 
           case 'getSkills':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full ">
                 <Skills />
               </div>
             );
 
           case 'getSports':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full ">
                 <Sports />
               </div>
             );
 
           case 'getCrazy':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full ">
                 <Crazy />
               </div>
             );
 
           case 'getInternship':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full ">
                 <InternshipCard />
               </div>
             );
@@ -91,17 +91,17 @@ export default function ToolRenderer({
             return (
               <div
                 key={toolCallId}
-                className="bg-secondary/10 w-full rounded-lg p-4"
+                className="bg-secondary/10 w-full  p-4"
               >
                 <div className="mb-2 flex items-center justify-between">
                   <h3 className="text-lg font-medium">{toolName}</h3>
-                  <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs text-green-800 dark:bg-green-900 dark:text-green-100">
+                  <span className=" bg-green-100 px-2 py-0.5 text-xs text-green-800 dark:bg-green-900 dark:text-green-100">
                     Tool Result
                   </span>
                 </div>
                 <div className="mt-2">
                   {typeof tool.result === 'object' ? (
-                    <pre className="bg-secondary/20 overflow-x-auto rounded p-3 text-sm">
+                    <pre className="bg-secondary/20 overflow-x-auto  p-3 text-sm">
                       {JSON.stringify(tool.result, null, 2)}
                     </pre>
                   ) : (

@@ -46,7 +46,7 @@ export function Photos({ photos, className = '', title }: PhotosProps) {
 
   return (
     <div className={`mx-auto w-full ${className}`}>
-      <div className="bg-accent w-full overflow-hidden rounded-3xl px-6 py-8 font-sans ">
+      <div className="bg-accent w-full overflow-hidden  px-6 py-8 font-sans ">
         {/* Title Section (if provided) */}
         {title && (
           <div className="mb-8">
@@ -61,12 +61,12 @@ export function Photos({ photos, className = '', title }: PhotosProps) {
           {photos.map((photo, index) => (
             <motion.div
               key={index}
-              className="relative aspect-square overflow-hidden rounded-2xl cursor-pointer"
+              className="relative aspect-square overflow-hidden  cursor-pointer"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
               onClick={() => openPhoto(photo)}
             >
-              <div className="relative h-full w-full overflow-hidden rounded-2xl">
+              <div className="relative h-full w-full overflow-hidden ">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
@@ -107,12 +107,12 @@ export function Photos({ photos, className = '', title }: PhotosProps) {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="relative max-h-[90vh] max-w-[90vw] rounded-lg overflow-hidden"
+              className="relative max-h-[90vh] max-w-[90vw]  overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
               <button
-                className="absolute top-4 right-4 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/70"
+                className="absolute top-4 right-4 z-10  bg-black/50 p-2 text-white hover:bg-black/70"
                 onClick={closePhoto}
               >
                 <X className="h-6 w-6" />

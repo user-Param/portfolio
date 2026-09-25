@@ -7,15 +7,15 @@ import React from 'react';
 export function Presentation() {
   // Personal information
   const profile = {
-    name: 'Raphael Giraud',
-    age: '21 years old',
-    location: 'Paris, France',
+    name: 'Paramjeet Singh',
+    age: '20 years old',
+    location: 'Delhi, India',
     // Add a newline character after the emoji
     description:
-      "Hey 👋\nI'm Raph also known as Toukoum. I'm a developer specializing in AI at 42 Paris. I'm working at LightOn AI in Paris. I'm passionate about AI, tech, Entrepreneurship and SaaS tech.",
-    src: '/profil-raph.png',
+      "Hey 👋\nI'm. I'm a developer specializing in AI at India. I'm working at 100xDevs. I'm passionate about AI, tech, Entrepreneurship and SaaS tech.",
+    src: '/profil-raph2.jpeg',
     fallbackSrc:
-      'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3',
+      '',
   };
 
   // Animation variants for text elements
@@ -47,7 +47,7 @@ export function Presentation() {
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
         {/* Image section */}
         <div className="relative mx-auto aspect-square w-full max-w-sm">
-          <div className="relative h-full w-full overflow-hidden rounded-2xl">
+          <div className="relative h-full w-full overflow-hidden ">
             <motion.div
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -82,7 +82,7 @@ export function Presentation() {
             </h1>
             <div className="mt-1 flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
               <p className="text-muted-foreground">{profile.age}</p>
-              <div className="bg-border hidden h-1.5 w-1.5 rounded-full md:block" />
+              <div className="bg-border hidden h-1.5 w-1.5  md:block" />
               <p className="text-muted-foreground">{profile.location}</p>
             </div>
           </motion.div>
@@ -107,7 +107,7 @@ export function Presentation() {
               (tag) => (
                 <span
                   key={tag}
-                  className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-sm"
+                  className="bg-secondary text-secondary-foreground  px-3 py-1 text-sm"
                 >
                   {tag}
                 </span>

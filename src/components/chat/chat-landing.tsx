@@ -68,7 +68,7 @@ const ChatLanding: React.FC<ChatLandingProps> = ({
             key={index}
             variants={itemVariants}
             onClick={() => submitQuery(text)}
-            className="flex items-center gap-2 rounded-xl border border-neutral-200 bg-white/80 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-neutral-100 transition-colors backdrop-blur-sm"
+            className="flex items-center gap-2  border border-neutral-200 bg-white/80 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-neutral-100 transition-colors backdrop-blur-sm"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
